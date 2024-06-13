@@ -9,5 +9,6 @@
 :root {
     background-color: #030303;
     color: #fff;
-
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
