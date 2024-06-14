@@ -4,7 +4,7 @@ import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
   return (
-    <header class="bg-primary h-20 p-5 grid fixed  grid-cols-2 w-screen ">
+    <header class="bg-primary h-15 p-5 grid fixed  grid-cols-2 w-screen ">
       <div class="flex justify px-5">
         <h1 class="content-nd">Logo</h1>
       </div>
