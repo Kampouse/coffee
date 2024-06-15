@@ -1,51 +1,55 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
-import type { DocumentHead, } from "@builder.io/qwik-city";
+import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
 import Header from "../components/Header";
-import *  as Lucid from "lucide-qwik"
-const bg2 = "background-image: url( ' https://media.discordapp.net/attachments/1247779779378413720/1251259488871387157/IMG_9437.jpg?ex=666dedb5&is=666c9c35&hm=348c1fa0828c4491092807353de7690950a7d82a581689018bbbed587e42cd19&=&format=webp&width=525&height=350')";
-
+import * as Lucid from "lucide-qwik";
+const bg2 =
+  "background-image: url( ' https://media.discordapp.net/attachments/1247779779378413720/1251259488871387157/IMG_9437.jpg?ex=666dedb5&is=666c9c35&hm=348c1fa0828c4491092807353de7690950a7d82a581689018bbbed587e42cd19&=&format=webp&width=525&height=350')";
 
 export const Land = component$(() => {
   return (
     <div
-
-      class="py-[10vh] flex  rounded-lg          bg-no-repeat  text-center lg:w-1/2 lg:mx-[30em]  bg-center  bg-cover  h-[50em]"
-      style={bg2}>
-      <div
-        class="flex lg:ml-36 text-center">
+      class="flex h-[50em]  justify-center  rounded-lg bg-cover  bg-center bg-no-repeat   py-[10vh]  text-center  "
+      style={bg2}
+    >
+      <div class="flex text-center lg:items-center">
         <div class="flex h-full items-center justify-center">
-          <div class="text-white mx-5">
-            <div class=" bg-white/5 rounded-3xl px-4 pt-2 pb-1  my-4">
-              <h2 class=" text-4xl font-semibold    ">The only coffee you will ever want</h2>
+          <div class="mx-5 text-white">
+            <div class=" my-4 rounded-3xl bg-white/5 px-4 pb-1  pt-2">
+              <h2 class=" text-4xl font-semibold    ">
+                The only coffee you will ever want
+              </h2>
               <h4 class="mb-1 text-xl font-semibold  underline ">Maybe</h4>
             </div>
             <Link
               type="a"
               class=" cursor-pointer rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
               data-twe-ripple-init
-              data-twe-ripple-color="light">
+              data-twe-ripple-color="light"
+            >
               check our stocks
             </Link>
           </div>
         </div>
       </div>
     </div>
-
   );
 });
 
-
 export const Mission = component$(() => {
   return (
-    <section id="about" class="bg-white flex bg-no-repeat  text-center lg:w-1/2 lg:mx-[30em]  py-10 bg-center  bg-cover h-fit">
+    <section
+      id="about"
+      class="flex h-fit  bg-white bg-cover bg-center  bg-no-repeat py-10 text-center  "
+    >
       <div class="container mx-auto my-4">
         <div class="flex flex-col items-center justify-center bg-white">
           <h2 class="text-4xl font-semibold text-[#1f4d37]">Our mission</h2>
-          <p class="text-lg text-[#1f4d37] mx-5 ">
-            Our mission is to transform the way the world enjoys coffee.
-            We believe in a coffee experience that transcends the ordinary,
-            where each cup tells a story of sustainability, empowerment, and exceptional flavour.
+          <p class=" text-lg text-[#1f4d37] ">
+            Our mission is to transform the way the world enjoys coffee. We
+            believe in a coffee experience that transcends the ordinary, where
+            each cup tells a story of sustainability, empowerment, and
+            exceptional flavour.
           </p>
         </div>
       </div>
@@ -55,129 +59,130 @@ export const Mission = component$(() => {
 
 export const Flower = component$(() => {
   return (
-    <div >
-      <img class=" flex  bg-no-repeat  text-center lg:w-1/2 lg:mx-[30em] lg:h-[25em]  w-screen bg-cover h-[15em]" src="https://images.nightcafe.studio/jobs/HOZ8zjm8Vnr8dmtfoB37/HOZ8zjm8Vnr8dmtfoB37--1--cudfk.jpg?tr=w-1600,c-at_max" alt="coffee" />
+    <div class="flex justify-center">
+      <img
+        class=" flex    h-[20em]  w-screen  bg-no-repeat lg:w-1/2"
+        src="https://images.nightcafe.studio/jobs/HOZ8zjm8Vnr8dmtfoB37/HOZ8zjm8Vnr8dmtfoB37--1--cudfk.jpg?tr=w-1600,c-at_max"
+        alt="coffee"
+      />
     </div>
   );
 });
 
-
 export const News = component$(() => {
   return (
-    <div class="   items-center  bg-no-repeat  text-center bg-white text-green-100 lg:w-1/2 lg:mx-[30em] lg:h-fit  w-screen bg-cover h-fit">
-      <h1 class="text-center text-[#1f4d37] p-5 pb-1 text-2xl" >  Latest News</h1>
-      <div class="flex lg:flex-row flex-col bg-white content-center items-center ">
-        <a class="p-8  border border-[#1f4d37] m-4 my-0   rounded-2xl "
-          href="#">
-          <img src="https://loremflickr.com/800/600/girl" class=" rounded-lg overflow-hidden border" />
-          <div class="mt-2 bg-white">
-            <h4 class="font-bold text-xl">Exercises</h4>
-            <p class="mt-2 text-gray-600">Create Exercises for any subject with the topics you and your students care about.
-            </p>
-            <div class="mt-5">
-
+    <div class="   h-fit   items-center justify-center bg-white bg-cover bg-no-repeat text-center text-green-100 lg:h-fit  ">
+      <div class="flex  flex-col items-center justify-center bg-white">
+        <h1 class="p-5 pb-1 text-center text-2xl text-[#1f4d37]">
+          {" "}
+          Latest News
+        </h1>
+        <div class="flex flex-col content-center items-center justify-center bg-white lg:w-1/2 lg:flex-row ">
+          <a
+            class="m-4  my-3 rounded-2xl border border-[#1f4d37]   p-8 "
+            href="#"
+          >
+            <img
+              src="https://loremflickr.com/800/600/girl"
+              class=" overflow-hidden rounded-lg border"
+            />
+            <div class="mt-2 bg-white">
+              <h4 class="text-xl font-bold">Exercises</h4>
+              <p class="mt-2 text-gray-600">
+                Create Exercises for any subject with the topics you and your
+                students care about.
+              </p>
+              <div class="mt-5"></div>
             </div>
-          </div>
-        </a>
-        <a class="p-8  border border-[#1f4d37] m-4 my-3   rounded-2xl "
-          href="#">
-          <img src="https://loremflickr.com/800/600/girl" class=" rounded-lg overflow-hidden border" />
-          <div class="mt-2 bg-white">
-            <h4 class="font-bold text-xl">Exercises</h4>
-            <p class="mt-2 text-gray-600">Create Exercises for any subject with the topics you and your students care about.
-            </p>
-            <div class="mt-5">
+          </a>
 
+          <a
+            class="m-4  my-3 rounded-2xl border border-[#1f4d37]   p-8 "
+            href="#"
+          >
+            <img
+              src="https://loremflickr.com/800/600/girl"
+              class=" overflow-hidden rounded-lg border"
+            />
+            <div class="mt-2 bg-white">
+              <h4 class="text-xl font-bold">Exercises</h4>
+              <p class="mt-2 text-gray-600">
+                Create Exercises for any subject with the topics you and your
+                students care about.
+              </p>
+              <div class="mt-5"></div>
             </div>
-          </div>
-        </a>
-
-
-
-
+          </a>
+        </div>
       </div>
     </div>
   );
 });
-
-
-
-
-
 
 export const Footed = component$(() => {
   return (
     <div class=" flex-col bg-primary py-3">
-      <div class="flex  bg-no-repeat  justify-center  text-center bg-primary  text-green-100 lg:w-1/2 lg:mx-[30em]   w-screen pb-0 p-5">
+      <div class="flex  w-screen  justify-center  bg-primary bg-no-repeat  p-5 pb-0 text-center   text-green-100 lg:mx-[30em] lg:w-1/2"></div>
 
-
-      </div>
-
-      <div class="grid grid-cols-4  ml-5  mb-5 gap-5">
+      <div class="mb-5 ml-5  grid  grid-cols-4 gap-5">
         <div class="flex  ">
-          <div class="flex  flex-col   justify-top ml-5 ">
+          <div class="justify-top  ml-5   flex flex-col ">
             <div class="flex   flex-row     ">
-              <a href="https://x.com/jemartel98" aria-label="twitter" target="_blank" class="p-2 flex gap-2 lg:flex-row justify-start flex-col hover:underline">
+              <a
+                href="https://x.com/jemartel98"
+                aria-label="twitter"
+                target="_blank"
+                class="flex flex-col justify-start gap-2 p-2 hover:underline lg:flex-row"
+              >
                 <Lucid.TwitterIcon />
               </a>
             </div>
-            <div class="flex  flex-row justify-center content-center">
-              <a arial-label="linkedin" href="https://x.com/buymeacoffee" target="_blank" class="p-2 text-lg flex lg:flex-row flex-col gap-2  hover:underline">
+            <div class="flex  flex-row content-center justify-center">
+              <a
+                arial-label="linkedin"
+                href="https://x.com/buymeacoffee"
+                target="_blank"
+                class="flex flex-col gap-2 p-2 text-lg hover:underline  lg:flex-row"
+              >
                 <Lucid.LinkedinIcon />
               </a>
             </div>
           </div>
-
-
         </div>
         <div class="flex flex-col ">
-          <h1 class="text-2xl mb-2"> Contact</h1>
+          <h1 class="mb-2 text-2xl"> Contact</h1>
           <h1 class="text-sm">info@jemarte.dev</h1>
           <h1> 111-111-111</h1>
         </div>
-        <div class="flex flex-col mx-5">
-          <h1 class="text-2xl mb-2"> Find us</h1>
+        <div class="mx-5 flex flex-col">
+          <h1 class="mb-2 text-2xl"> Find us</h1>
           <h1 class="text-sm"> somwhere on the street </h1>
           <h1> Montreal</h1>
         </div>
         <div class="flex flex-col">
-          <h1 class="text-2xl mb-2"> Legals</h1>
+          <h1 class="mb-2 text-2xl"> Legals</h1>
           <h1> privacy policy</h1>
           <h1> term & condition </h1>
-
         </div>
-
       </div>
-
-
-
     </div>
   );
 });
-
-
-
-
-
 
 export const Footer = component$(() => {
   return (
-    <div class="   items-center  bg-no-repeat  text-center bg-white text-green-100 lg:w-1/2 lg:mx-[30em] lg:h-fit  w-screen bg-cover h-fit p-5">
-      <button class="bg-[#1f4d37] text-white p-2 rounded-lg"> Buy the stuff</button>
-
+    <div class="   flex  h-fit   items-center justify-center bg-white bg-cover bg-no-repeat p-5 text-center  text-green-100  lg:h-fit">
+      <button class="rounded-lg bg-[#1f4d37] p-2 text-white">
+        {" "}
+        Buy the stuff
+      </button>
     </div>
   );
 });
 
-
-
-
-
-
-
 export default component$(() => {
   return (
-    <main class="bg-[#cbe7c3] scroll-smooth">
+    <main class="scroll-smooth bg-[#cbe7c3]">
       <Header />
       <Land />
       <Mission />

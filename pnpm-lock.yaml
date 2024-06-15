@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      lucide-qwik:
-        specifier: ^1.0.0
-        version: 1.0.0
     devDependencies:
       '@builder.io/qwik':
         specifier: ^1.5.5
@@ -39,6 +35,9 @@ importers:
       eslint-plugin-qwik:
         specifier: ^1.5.5
         version: 1.5.5(eslint@8.57.0)
+      lucide-qwik:
+        specifier: ^1.0.0
+        version: 1.0.0
       postcss:
         specifier: ^8.4.31
         version: 8.4.38
