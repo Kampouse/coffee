@@ -7,8 +7,8 @@
 @tailwind utilities;
 
 :root {
-    background-color: #030303;
-    color: #fff;
-    scrollbar-width: thin;
-    scroll-behavior: smooth;
+  background-color: #cbe7c3;
+  color: #fff;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
 }

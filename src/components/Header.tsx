@@ -1,17 +1,23 @@
-
 import { component$ } from "@builder.io/qwik";
-
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
-    <header class="bg-primary h-15 p-5 grid fixed  grid-cols-2 w-screen ">
-      <div class="flex justify px-5">
-        <h1 class="content-nd">Logo</h1>
+    <header class="h-15 fixed grid w-screen grid-cols-2  bg-primary p-5 ">
+      <div class="justify flex px-5">
+        <Link href="/" class=" content-nd cursor-pointer">
+          Logo
+        </Link>
       </div>
       <div>
-        <div class=" hidden md:visible
-        lg:flex justify-end px-5 gap-12 lg:visible">
-          <h1 class="content-nd">Logo</h1>
+        <div
+          class=" hidden justify-end
+        gap-12 px-5 md:visible lg:visible lg:flex"
+        >
+          <Link href="/products" class="content-nd cursor-pointer">
+            {" "}
+            Products{" "}
+          </Link>
           <h1 class="content-nd">Logo</h1>
           <h1 class="content-nd">Logo</h1>
           <h1 class="content-nd">Logo</h1>
