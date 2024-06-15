@@ -1,5 +1,6 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import type { DocumentHead, } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 import Header from "../components/Header";
 import *  as Lucid from "lucide-qwik"
 const bg2 = "background-image: url( ' https://media.discordapp.net/attachments/1247779779378413720/1251259488871387157/IMG_9437.jpg?ex=666dedb5&is=666c9c35&hm=348c1fa0828c4491092807353de7690950a7d82a581689018bbbed587e42cd19&=&format=webp&width=525&height=350')";
@@ -8,6 +9,7 @@ const bg2 = "background-image: url( ' https://media.discordapp.net/attachments/1
 export const Land = component$(() => {
   return (
     <div
+
       class="py-[10vh] flex  rounded-lg          bg-no-repeat  text-center lg:w-1/2 lg:mx-[30em]  bg-center  bg-cover  h-[50em]"
       style={bg2}>
       <div
@@ -18,13 +20,13 @@ export const Land = component$(() => {
               <h2 class=" text-4xl font-semibold    ">The only coffee you will ever want</h2>
               <h4 class="mb-1 text-xl font-semibold  underline ">Maybe</h4>
             </div>
-            <a
+            <Link
               type="a"
               class=" cursor-pointer rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
               data-twe-ripple-init
               data-twe-ripple-color="light">
               check our stocks
-            </a>
+            </Link>
           </div>
         </div>
       </div>
