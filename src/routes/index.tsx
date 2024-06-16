@@ -198,7 +198,6 @@ export default component$(() => {
       <Flower />
       <News />
       <Footer />
-      <Footed />
     </main>
   );
 });
