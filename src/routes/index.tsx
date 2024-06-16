@@ -3,13 +3,14 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
 import Header from "../components/Header";
 import * as Lucid from "lucide-qwik";
+
 const bg2 =
-  "background-image: url( ' https://media.discordapp.net/attachments/1247779779378413720/1251259488871387157/IMG_9437.jpg?ex=666dedb5&is=666c9c35&hm=348c1fa0828c4491092807353de7690950a7d82a581689018bbbed587e42cd19&=&format=webp&width=525&height=350')";
+  "background-image: url( '/coffee.jpg'); background-size: cover";
 
 export const Land = component$(() => {
   return (
     <div
-      class="flex h-[50em]  justify-center   bg-cover  bg-center bg-no-repeat   py-[10vh]  text-center  "
+      class="flex justify-center  h-[25em] lg:h-[50em]   bg-center     py-[10vh]  text-center  "
       style={bg2}
     >
       <div class="flex text-center lg:items-center">
@@ -46,7 +47,7 @@ export const Mission = component$(() => {
       <div class="container mx-auto my-4">
         <div class="flex flex-col items-center justify-center bg-white">
           <h2 class="text-4xl font-semibold text-[#1f4d37]">Our mission</h2>
-          <p class=" text-lg text-[#1f4d37] ">
+          <p class=" text-lg text-[#1f4d37]  mx-2 lg:w-1/2 ">
             Our mission is to transform the way the world enjoys coffee. We
             believe in a coffee experience that transcends the ordinary, where
             each cup tells a story of sustainability, empowerment, and
@@ -60,12 +61,16 @@ export const Mission = component$(() => {
 
 export const Flower = component$(() => {
   return (
-    <div class="flex justify-center">
+    <div class="flex justify-center h-[15em] lg:h-[30em]">
+
+
+      <h1 class="  text-center text-4xl font-semibold text-black w-screen lg:w-1/2 mt-12 m-2 lg:m-56"> the perfect coffee must  be ...  </h1>
       <img
-        class=" flex    h-[20em]  w-screen  bg-no-repeat lg:w-1/2"
-        src="https://images.nightcafe.studio/jobs/HOZ8zjm8Vnr8dmtfoB37/HOZ8zjm8Vnr8dmtfoB37--1--cudfk.jpg?tr=w-1600,c-at_max"
+        class=" flex   bg-repeat-x bg-center w-52  lg:h-[100%] lg:w-[100%]"
+        src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
         alt="coffee"
       />
+
     </div>
   );
 });
@@ -74,7 +79,7 @@ export const News = component$(() => {
   return (
     <div class="   h-fit   items-center justify-center bg-white bg-cover bg-no-repeat text-center text-green-100 lg:h-fit  ">
       <div class="flex  flex-col items-center justify-center bg-white">
-        <h1 class="p-5 pb-1 text-center text-2xl text-[#1f4d37]">
+        <h1 class="p-10 pb-1  text-center text-2xl text-[#1f4d37]">
           {" "}
           Latest News
         </h1>
