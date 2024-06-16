@@ -1,11 +1,8 @@
-import { component$, useStyles$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
-import Header from "../components/Header";
 import * as Lucid from "lucide-qwik";
-
-const bg2 =
-  "background-image: url( '/coffee.jpg'); background-size: cover";
+const bg2 = "background-image: url( '/coffee.jpg'); background-size: cover";
 
 export const Land = component$(() => {
   return (
@@ -25,7 +22,7 @@ export const Land = component$(() => {
             <Link
               type="a"
               href="/products"
-              class=" cursor-pointer rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+              class="cursor-pointer rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
               data-twe-ripple-init
               data-twe-ripple-color="light"
             >
@@ -62,10 +59,10 @@ export const Mission = component$(() => {
 export const Flower = component$(() => {
   return (
     <div class="flex justify-center h-[15em] lg:h-[30em]">
-
-
-      <h1 class="  text-center text-4xl font-semibold text-black w-screen lg:w-1/2 mt-12 m-2 lg:m-56"> the perfect coffee must  be ...  </h1>
+      <h1 class="text-center text-4xl font-semibold text-black w-screen lg:w-1/2 mt-12 m-2 lg:m-56"> the perfect coffee must  be ...  </h1>
       <img
+        width={800}
+        height={600}
         class=" flex   bg-repeat-x bg-center w-52  lg:h-[100%] lg:w-[100%]"
         src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
         alt="coffee"
@@ -89,6 +86,8 @@ export const News = component$(() => {
             href="#"
           >
             <img
+              height={600}
+              width={800}
               src="https://loremflickr.com/800/600/girl"
               class=" overflow-hidden rounded-lg border"
             />
@@ -107,6 +106,8 @@ export const News = component$(() => {
             href="#"
           >
             <img
+              width={800}
+              height={600}
               src="https://loremflickr.com/800/600/girl"
               class=" overflow-hidden rounded-lg border"
             />
@@ -177,11 +178,14 @@ export const Footed = component$(() => {
 
 export const Footer = component$(() => {
   return (
-    <div class="   flex  h-fit   items-center justify-center bg-white bg-cover bg-no-repeat p-5 text-center  text-green-100  lg:h-fit">
-      <button class="rounded-lg bg-[#1f4d37] p-2 text-white">
+    <div class="flex h-fit items-center justify-center bg-white bg-cover bg-no-repeat p-5 text-center  text-green-100  lg:h-fit">
+      <Link
+        href="/products"
+        about="products pages"
+        class="rounded-lg bg-[#1f4d37] p-2 text-white">
         {" "}
         Buy the stuff
-      </button>
+      </Link>
     </div>
   );
 });
@@ -205,6 +209,7 @@ export const head: DocumentHead = {
     {
       name: "description",
       content: "smooth coffee is good",
+      media: "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
     },
   ],
 };
