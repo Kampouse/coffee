@@ -2,15 +2,15 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
 import * as Lucid from "lucide-qwik";
-const bg2 = "background-image: url( '/coffee.jpg'); background-size: cover";
+import Coffe from "~/assets/img/coffee.jpg?jsx"
+
 
 export const Land = component$(() => {
   return (
     <div
-      class="flex justify-center  h-[25em] lg:h-[50em]   bg-center     py-[10vh]  text-center  "
-      style={bg2}
+      class="lg:flex lg:flex-row flex-col justify-center  lg:h-[48em]   bg-center       text-center  "
     >
-      <div class="flex text-center lg:items-center">
+      <div class="flex text-center lg:items-center lg:my-0 my-28">
         <div class="flex h-full items-center justify-center">
           <div class="mx-5 text-white">
             <div class=" my-4 rounded-3xl bg-white/5 px-4 pb-1  pt-2">
@@ -31,6 +31,12 @@ export const Land = component$(() => {
           </div>
         </div>
       </div>
+
+
+      <Coffe class=" flex justify-center     h-full  bg-center       text-center  " />
+
+
+
     </div>
   );
 });
@@ -63,7 +69,7 @@ export const Flower = component$(() => {
       <img
         width={800}
         height={600}
-        class=" flex   bg-repeat-x bg-center w-52  lg:h-[100%] lg:w-[100%]"
+        class=" flex   bg-repeat-x bg-center w-52 h-full lg:w-[100%]"
         src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
         alt="coffee"
       />
