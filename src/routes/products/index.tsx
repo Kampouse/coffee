@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, useNavigate } from "@builder.io/qwik-city";
-
 export const ProductCard = component$((props: { title: string }) => {
 
   const navigate = useNavigate();
