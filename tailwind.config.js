@@ -18,7 +18,8 @@ export default {
 
 
 
-      }
+      },
+      backgroundImage: { 'main': "url('/primaryImage.jpg')" },
 
     },
   },

@@ -1,42 +1,29 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
+import Icon from "../assets/img/CoffeIcon.svg?jsx"
 import * as Lucid from "lucide-qwik";
-import Coffe from "~/assets/img/coffee.jpg?jsx"
 
 
 export const Land = component$(() => {
   return (
-    <div
-      class="lg:flex lg:flex-row flex-col justify-center  lg:h-[48em]   bg-center       text-center  "
-    >
-      <div class="flex text-center lg:items-center lg:my-0 my-28">
-        <div class="flex h-full items-center justify-center">
-          <div class="mx-5 text-white">
-            <div class=" my-4 rounded-3xl bg-white/5 px-4 pb-1  pt-2">
-              <h2 class=" text-4xl font-semibold    ">
-                The only coffee you will ever want
-              </h2>
-              <h4 class="mb-1 text-xl font-semibold  underline ">Maybe</h4>
-            </div>
-            <Link
-              type="a"
-              href="/products"
-              class="cursor-pointer rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
-              data-twe-ripple-init
-              data-twe-ripple-color="light"
-            >
-              check our stocks
-            </Link>
-          </div>
-        </div>
+
+
+    <div class="flex  bg-main bg-cover object-cover   bg-center h-[30rem] lg:h-[49rem] ">
+      <div class="flex flex-col items-center justify-center   w-full">
+
+        <Icon class="w-20 h-20" />
+        <h1 class="text-center text-3xl text-white font-semibold "> 10% off your favourite Latte</h1>
+
+        <h5 class="text-center text-lg text-white font-semibold ">Every Tuesday</h5>
+
+        <Link
+          class="bg-[#FFAF18] text-white p-2 rounded-lg mt-4"
+          href="/about"
+        >
+          See our Selection
+        </Link>
       </div>
-
-
-      <Coffe class=" flex justify-center     h-full  bg-center       text-center  " />
-
-
-
     </div>
   );
 });
