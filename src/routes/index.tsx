@@ -1,25 +1,24 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
-import Icon from "../assets/img/CoffeIcon.svg?jsx"
+import Icon from "../assets/img/Animated-Icon.svg?jsx";
 import * as Lucid from "lucide-qwik";
-
 
 export const Land = component$(() => {
   return (
-
-
-    <div class="flex  bg-main bg-cover object-cover   bg-center h-[30rem] lg:h-[49rem] ">
-      <div class="flex flex-col items-center justify-center   w-full">
-
-        <Icon class="w-20 h-20" />
-        <h1 class="text-center text-3xl text-white font-semibold "> 10% off your favourite Latte</h1>
-
-        <h5 class="text-center text-lg text-white font-semibold ">Every Tuesday</h5>
-
+    <div class="  flex h-[30rem] bg-main bg-cover   bg-center object-cover lg:h-[49rem] ">
+      <div class="flex w-full flex-col items-center   justify-center">
+        <Icon class="h-40 w-40 " />
+        <h1 class="text-center text-3xl font-semibold tracking-[0.187em] text-white ">
+          {" "}
+          10% off your favourite Latte
+        </h1>
+        <h5 class=" font-mali text-background_1 py-3 text-center text-2xl font-semibold ">
+          Every Tuesday
+        </h5>
         <Link
-          class="bg-[#FFAF18] text-white p-2 rounded-lg mt-4"
-          href="/about"
+          class="bg-secondary mt-4 rounded-lg p-3 text-xl tracking-wider "
+          href="/products"
         >
           See our Selection
         </Link>
@@ -28,39 +27,31 @@ export const Land = component$(() => {
   );
 });
 
-export const Mission = component$(() => {
+export const Featured = component$(() => {
   return (
     <section
       id="about"
-      class="flex h-fit  bg-white bg-cover bg-center  bg-no-repeat py-10 text-center  "
+      class="font-mali flex h-fit bg-white bg-cover bg-center  bg-no-repeat py-10 text-center  "
     >
-      <div class="container mx-auto my-4">
-        <div class="flex flex-col items-center justify-center bg-white">
-          <h2 class="text-4xl font-semibold text-[#1f4d37]">Our mission</h2>
-          <p class=" text-lg text-[#1f4d37]  mx-2 lg:w-1/2 ">
-            Our mission is to transform the way the world enjoys coffee. We
-            believe in a coffee experience that transcends the ordinary, where
-            each cup tells a story of sustainability, empowerment, and
-            exceptional flavour.
-          </p>
-        </div>
-      </div>
+      <h1 class=" text-primary "> Check out ?? our summer selections</h1>
     </section>
   );
 });
 
 export const Flower = component$(() => {
   return (
-    <div class="flex justify-center h-[15em] lg:h-[30em]">
-      <h1 class="text-center text-4xl font-semibold text-black w-screen lg:w-1/2 mt-12 m-2 lg:m-56"> the perfect coffee must  be ...  </h1>
+    <div class="flex h-[15em] justify-center lg:h-[30em]">
+      <h1 class="m-2 mt-12 w-screen text-center text-4xl font-semibold text-black lg:m-56 lg:w-1/2">
+        {" "}
+        the perfect coffee must be ...{" "}
+      </h1>
       <img
         width={800}
         height={600}
-        class=" flex   bg-repeat-x bg-center w-52 h-full lg:w-[100%]"
+        class=" flex   h-full w-52 bg-center bg-repeat-x lg:w-[100%]"
         src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
         alt="coffee"
       />
-
     </div>
   );
 });
@@ -175,7 +166,8 @@ export const Footer = component$(() => {
       <Link
         href="/products"
         about="products pages"
-        class="rounded-lg bg-[#1f4d37] p-2 text-white">
+        class="rounded-lg bg-[#1f4d37] p-2 text-white"
+      >
         {" "}
         Buy the stuff
       </Link>
@@ -187,7 +179,7 @@ export default component$(() => {
   return (
     <main class="scroll-smooth bg-[#cbe7c3]">
       <Land />
-      <Mission />
+      <Featured />
       <Flower />
       <News />
       <Footer />
@@ -201,7 +193,8 @@ export const head: DocumentHead = {
     {
       name: "description",
       content: "smooth coffee is good",
-      media: "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
+      media:
+        "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
     },
   ],
 };
