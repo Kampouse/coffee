@@ -7,7 +7,7 @@ import * as Lucid from "lucide-qwik";
 
 export const Land = component$(() => {
   return (
-    <div class="  flex h-[30rem] bg-main bg-cover   bg-center object-cover lg:h-[49rem] ">
+    <div class="  flex h-[30rem] bg-main bg-cover   bg-center object-cover lg:h-[50rem] ">
       <div class="flex w-full flex-col items-center   justify-center">
         <Icon class="h-40 w-40 " />
         <h1 class="text-center text-3xl font-semibold tracking-[0.187em] text-white ">
@@ -29,134 +29,93 @@ export const Land = component$(() => {
 });
 
 export const Featured = component$(() => {
-  const food = ["user ", "are ", "nice", "but", "am"]
+  const food = ["Match", "latte", "Cappuccino", "Espresso", "Americano"]
   return (
     <section
       id="about"
-      class="font-mali flex flex-col   bg-white bg-cover bg-center  bg-no-repeat  p-5 px-20   h-fit    "
-    >
+      class="font-mali flex flex-col   bg-white bg-cover bg-center  bg-no-repeat  p-5 lg:px-20 px-12 h-fit">
       <div class="grid grid-cols-2 w-full py-10 ">
-        <h1 class="text-secondary  text-3xl font-bold w-1/2  "> Check out our summer selections </h1>
+        <div class="flex flex-col  w-full">
+          <h1 class="text-secondary  text-3xl font-bold lg:w-1/2 md:w-1/2 w-[12em]  "> Check out our summer selections </h1>
+          <GreenLine class="   ml-24    lg:hidden     " />
+        </div>
 
-        <div class="flex flex-row  justify-end  ">
+        <div class=" lg:flex flex-row  justify-end hidden lg:visible md:visible  ">
           <GreenLine />
-          <h1 class="text-primary    text-3xl text-left  font-light "> Curated just for YOU </h1>
+          <h1 class="  text-primary    text-3xl text-left  font-light "> Curated just for YOU </h1>
         </div>
       </div>
-
-      <div class="flex flex-wrap gap-10 ">
-
+      <div class="flex flex-wrap  ">
         {food.map((item) => {
           return (
-            <div key={item} class="flex flex-col justify-evenly text-center ">
-
+            <div key={item} class="flex flex-col content-center justify-evenly text-center lg:px-0 m-5   ">
               <img
-                width={800}
+                width={750}
                 height={600}
-                class="h-72  w-72"
+                class="lg:h-72  lg:w-60 h-80 w-96"
                 src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
                 alt="coffee"
               />
-              <h1 class="text-red-950"> {item}</h1>
+              <h1 class=" text-center text-black text-2xl"> {item}</h1>
             </div>
-
-
           )
-
-
         })
-
-
-
         }
-
-
-
-
-
-
       </div>
-
       <div>
-
-
-
       </div>
-
-
-
     </section>
   );
 });
 
-export const Flower = component$(() => {
+export const Description = component$(() => {
   return (
-    <div class="flex h-[15em] justify-center lg:h-[30em]">
-      <h1 class="m-2 mt-12 w-screen text-center text-4xl font-semibold text-black lg:m-56 lg:w-1/2">
-        {" "}
-        the perfect coffee must be ...{" "}
-      </h1>
-      <img
-        width={800}
-        height={600}
-        class=" flex   h-full w-52 bg-center bg-repeat-x lg:w-[100%]"
-        src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
-        alt="coffee"
-      />
+    <div id="#desc" class="flex  justify-center  bg-second bg-cover flex-col   ">
+      <div class="flex flex-col lg:p-8 px-10 py-3 my-20 gap-3   lg:w-full ">
+        <h1 class="text-center text-[24px] lg:w-[25em] break-all self-center  ">
+          {" "}
+          Welcome to "Coffee Now” where convenience meets quality. Founded by Jean-Philippe and Anna, our coffee shop offers a seamless experience: simply click to order online, then swing by to pick up your favourite brew.
+          {" "}
+        </h1>
+        <Link href="/products" class="bg-secondary rounded-lg text-white w-40  p-3  self-center"> See our Selection
+
+
+        </Link>
+      </div>
     </div>
   );
 });
 
-export const News = component$(() => {
+export const Custom = component$(() => {
   return (
-    <div class="   h-fit   items-center justify-center bg-white bg-cover bg-no-repeat text-center text-green-100 lg:h-fit  ">
-      <div class="flex  flex-col items-center justify-center bg-white">
-        <h1 class="p-10 pb-1  text-center text-2xl text-[#1f4d37]">
-          {" "}
-          Latest News
-        </h1>
-        <div class="flex flex-col content-center items-center justify-center bg-white lg:w-1/2 lg:flex-row ">
-          <a
-            class="m-4  my-3 rounded-2xl border border-[#1f4d37]   p-8 "
-            href="#"
-          >
-            <img
-              height={600}
-              width={800}
-              src="https://loremflickr.com/800/600/girl"
-              class=" overflow-hidden rounded-lg border"
-            />
-            <div class="mt-2 bg-white">
-              <h4 class="text-xl font-bold">Exercises</h4>
-              <p class="mt-2 text-gray-600">
-                Create Exercises for any subject with the topics you and your
-                students care about.
-              </p>
-              <div class="mt-5"></div>
-            </div>
-          </a>
-
-          <a
-            class="m-4  my-3 rounded-2xl border border-[#1f4d37]   p-8 "
-            href="#"
-          >
-            <img
-              width={800}
-              height={600}
-              src="https://loremflickr.com/800/600/girl"
-              class=" overflow-hidden rounded-lg border"
-            />
-            <div class="mt-2 bg-white">
-              <h4 class="text-xl font-bold">Exercises</h4>
-              <p class="mt-2 text-gray-600">
-                Create Exercises for any subject with the topics you and your
-                students care about.
-              </p>
-              <div class="mt-5"></div>
-            </div>
-          </a>
-        </div>
+    <div id="#custom" class="   h-fit flex  flex-col     bg-white bg-cover bg-no-repeat  p-10 lg:pl-16 text-green-100 lg:h-fit  ">
+      <div class="lg:py-5 ">
+        <h1 class="text-black text-3xl font-bold font-mali">Customizing your drink is </h1>
+        <h1 class=" text-secondary text-3xl font-bold font-mali">as easy as 1 2 3</h1>
       </div>
+      <div class="flex lg:flex-row flex-col  lg:gap-72 pl-8 lg:pl-72">
+        <div class="flex  flex-row lg:flex-col">
+          <h1 class="text-8xl flex flex-row text-secondary w-40 pt-12 "> 1  <p class="p-5 pl-2 pt-0 self-end text-lg justify-end text-secondary   ">Choose the sugar level</p> </h1>
+          <h1 class="text-secondary text-2xl"></h1>
+          <Lucid.CoffeeIcon class="h-20 w-20  lg:place-self-center self-center pt-5 lg:pt-0" />
+
+        </div>
+        <div class="flex  flex-row lg:flex-col">
+          <h1 class="text-8xl flex flex-row text-secondary w-40 pt-12 "> 2  <p class="p-5 pl-2 pt-0 self-end text-lg justify-end text-secondary   ">Choose the sugar level</p> </h1>
+          <h1 class="text-secondary text-2xl"></h1>
+          <Lucid.CoffeeIcon class="h-20 w-20  lg:place-self-center self-center pt-5 lg:pt-0" />
+
+        </div>
+        <div class="flex  flex-row lg:flex-col">
+          <h1 class="text-8xl flex flex-row text-secondary w-40 pt-12 "> 3  <p class="p-5 pl-2 pt-0 self-end text-lg justify-end text-secondary   ">Choose the sugar level</p> </h1>
+          <h1 class="text-secondary text-2xl"></h1>
+          <Lucid.CoffeeIcon class="h-20 w-20  lg:place-self-center self-center pt-5 lg:pt-0" />
+
+        </div>
+
+
+      </div>
+
     </div>
   );
 });
@@ -229,10 +188,12 @@ export const Footer = component$(() => {
 export default component$(() => {
   return (
     <main class="scroll-smooth bg-[#cbe7c3]">
+
       <Land />
+
       <Featured />
-      <Flower />
-      <News />
+      <Description />
+      <Custom />
       <Footer />
     </main>
   );
