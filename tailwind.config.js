@@ -6,6 +6,7 @@ export default {
       color: {
         primary: "#000000", // Primary Color
         secondary: "#025949", // Secondary Color
+        scondary_hover: "#7dab80", // Secondary Color
         highlight: "#654321", // Highlight Color
         background_1: "#FFA500", // Background_1
         background_2: "#C2E3A3", // Background_2
@@ -14,6 +15,7 @@ export default {
       backgroundColor: {
         primary: "#000000", // Primary Color
         secondary: "#025949", // Secondary Color
+        scondary_hover: "#016450", // Secondary Color
         highlight: "#654321", // Highlight Color
         background_1: "#FFA500", // Background_1
         background_2: "#C2E3A3", // Background_2
@@ -22,14 +24,22 @@ export default {
       textColor: {
         primary: "#000000", // Primary Color
         secondary: "#025949", // Secondary Color
+        scondary_hover: "#2a3d2b", // Secondary Color
         highlight: "#654321", // Highlight Color
         background_1: "#FFA500", // Background_1
         background_2: "#C2E3A3", // Background_2
         white: "#FFFFFF", // White
       },
-
       backgroundImage: { main: "url('/primaryImage.jpg')" },
-
+      borderColor: {
+        primary: "#000000", // Primary Color
+        secondary: "#025949", // Secondary Color
+        scondary_hover: "#2a3d2b", // Secondary Color
+        highlight: "#654321", // Highlight Color
+        background_1: "#FFA500", // Background_1
+        background_2: "#C2E3A3", // Background_2
+        white: "#FFFFFF", // White
+      },
       fontFamily: {
         mali: ["'Mali'", "italic"],
       },

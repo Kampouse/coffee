@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
 import Icon from "../assets/img/Animated-Icon.svg?jsx";
+import GreenLine from "../assets/img/greenline.svg?jsx";
 import * as Lucid from "lucide-qwik";
 
 export const Land = component$(() => {
@@ -17,7 +18,7 @@ export const Land = component$(() => {
           Every Tuesday
         </h5>
         <Link
-          class="bg-secondary mt-4 rounded-lg p-3 text-xl tracking-wider "
+          class="bg-secondary mt-4 rounded-lg b p-3 text-xl tracking-wider "
           href="/products"
         >
           See our Selection
@@ -28,12 +29,62 @@ export const Land = component$(() => {
 });
 
 export const Featured = component$(() => {
+  const food = ["user ", "are ", "nice", "but", "am"]
   return (
     <section
       id="about"
-      class="font-mali flex h-fit bg-white bg-cover bg-center  bg-no-repeat py-10 text-center  "
+      class="font-mali flex flex-col   bg-white bg-cover bg-center  bg-no-repeat  p-5 px-20   h-fit    "
     >
-      <h1 class=" text-primary "> Check out ?? our summer selections</h1>
+      <div class="grid grid-cols-2 w-full py-10 ">
+        <h1 class="text-secondary  text-3xl font-bold w-1/2  "> Check out our summer selections </h1>
+
+        <div class="flex flex-row  justify-end  ">
+          <GreenLine />
+          <h1 class="text-primary    text-3xl text-left  font-light "> Curated just for YOU </h1>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-10 ">
+
+        {food.map((item) => {
+          return (
+            <div key={item} class="flex flex-col justify-evenly text-center ">
+
+              <img
+                width={800}
+                height={600}
+                class="h-72  w-72"
+                src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
+                alt="coffee"
+              />
+              <h1 class="text-red-950"> {item}</h1>
+            </div>
+
+
+          )
+
+
+        })
+
+
+
+        }
+
+
+
+
+
+
+      </div>
+
+      <div>
+
+
+
+      </div>
+
+
+
     </section>
   );
 });
