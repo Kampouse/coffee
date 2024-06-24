@@ -238,18 +238,18 @@ export const Footed = component$(() => {
 const Comment = component$(() => {
   return (
     <div class="bg-secondary flex h-fit flex-col  items-center justify-center gap-2 self-center  bg-no-repeat p-5  text-center   lg:h-fit">
-      <div class="grid w-full grid-cols-2 gap-24 px-52 ">
-        <div class="self-end">
-          <h1 class="font-mali pt-8 text-left text-2xl text-white">
+      <div class="grid    lg:grid-cols-2 lg:gap-24  lg:px-52 ">
+        <div class="w-full lg:self-end">
+          <h1 class="font-mali pt-8 text-center text-2xl text-white lg:text-left">
             {" "}
             From Beans to Bliss: Why I Love Coffee Now
           </h1>
-          <div class="flex flex-row self-center p-8 pb-4">
+          <div class="flex flex-col  self-center p-8 pb-4 lg:flex-row">
             <Lucid.QuoteIcon
               color="#BFDFB7"
               class="  h-8 w-16 rotate-180 text-white"
             />
-            <h2 class="flex w-96 flex-row gap-5 text-center text-xl">
+            <h2 class="flex w-96 flex-col gap-5 text-center text-xl lg:flex-row">
               Every cup at Coffee Now is a masterpiece in itself, crafted with
               precision and passion by their talented baristas. Whether it's a
               velvety smooth latte adorned with delicate latte art or a bold
@@ -284,7 +284,7 @@ const Comment = component$(() => {
             </div>
           </div>
         </div>
-        <CoffeBG class=" flex h-[500px] w-[400px] justify-end self-end" />
+        <CoffeBG class=" flex    lg:h-[500px] lg:w-[400px]" />
       </div>
     </div>
   );
