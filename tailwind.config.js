@@ -30,7 +30,7 @@ export default {
         background_2: "#C2E3A3", // Background_2
         white: "#FFFFFF", // White
       },
-      backgroundImage: { main: "url('/primaryImage.jpg')", second: "url('https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max')" },
+      backgroundImage: { main: "url('/primaryImage.jpg')", second: " url('/coffee.jpg')" },
       borderColor: {
         primary: "#000000", // Primary Color
         secondary: "#025949", // Secondary Color

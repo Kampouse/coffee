@@ -13,6 +13,7 @@ import Matcha from "../assets/img/matcha.png?jsx";
 import Herbal from "../assets/img/herbal.png?jsx";
 import Smoothie from "../assets/img/smoothie.png?jsx";
 import Cha from "../assets/img/cha.png?jsx";
+import Coffee from "../assets/img/coffee.png?jsx";
 
 
 export const Land = component$(() => {
@@ -92,7 +93,6 @@ export const Featured = component$(() => {
               class="m-5 flex flex-col content-center justify-evenly text-center lg:px-0   "
             >
               <item.src />
-
               <h1 class=" text-center text-2xl text-black"> {item.alt}</h1>
             </div>
           );
@@ -110,7 +110,7 @@ export const Description = component$(() => {
       class="bg-second  flex  flex-col justify-center bg-cover   "
     >
       <div class="my-20 flex flex-col gap-3 px-10 py-3 lg:w-full   lg:p-8 ">
-        <h1 class="self-center break-all text-center text-[24px] lg:w-[25em]  ">
+        <h1 class="self-center break-words text-center text-[24px] lg:w-[25em]  ">
           {" "}
           Welcome to "Coffee Now” where convenience meets quality. Founded by
           Jean-Philippe and Anna, our coffee shop offers a seamless experience:
@@ -130,7 +130,28 @@ export const Description = component$(() => {
 });
 
 export const Custom = component$(() => {
+
+  const steps = [
+    {
+      src: Step1,
+      alt: "1",
+      text: "Choose your sugar level",
+    },
+    {
+      src: Step2,
+      alt: "2",
+      text: "Choose your toppings",
+    },
+    {
+      src: Step3,
+      alt: "3",
+      text: "Choose the cup size",
+    },
+  ];
+
+
   return (
+
     <div
       id="#custom"
       class="   flex h-fit  flex-col     bg-white bg-cover bg-no-repeat  p-10 text-green-100 lg:h-fit  "
@@ -144,40 +165,21 @@ export const Custom = component$(() => {
         </h1>
       </div>
       <div class="flex flex-col pl-8  lg:flex-row lg:gap-60 ">
-        <div class="flex  flex-col lg:flex-col">
-          <div>
-            <h1 class="text-secondary flex  flex-row pt-12 text-8xl ">
-              {" "}
-              1{" "}
-              <p class="text-secondary  w-48  justify-end self-end p-5 pl-2 pt-0 text-lg   ">
-                Choose the sugar level
-              </p>{" "}
-            </h1>
-          </div>
-          <h1 class="text-secondary text-2xl"></h1>
-          <Step1 class=" self-center pt-5 lg:place-self-center lg:pt-0" />
-        </div>
-        <div class="flex  flex-col lg:flex-col">
-          <h1 class="text-secondary flex w-48 flex-row pt-12 text-8xl ">
-            {" "}
-            2{" "}
-            <p class="text-secondary break-word justify-end self-end p-5 pl-2 pt-0 text-center text-lg   ">
-              Choose the toppings
-            </p>{" "}
-          </h1>
-          <Step2 class="  self-center pt-5 lg:place-self-center lg:pt-0" />
-        </div>
-        <div class="flex  flex-col lg:flex-col">
-          <h1 class="text-secondary flex w-48 flex-row pt-12 text-8xl ">
-            {" "}
-            3{" "}
-            <p class="text-secondary justify-end self-end p-5 pl-2 pt-0 text-lg   ">
-              Choose the cup size
-            </p>{" "}
-          </h1>
-          <h1 class="text-secondary text-2xl"></h1>
-          <Step3 class="  self-center pt-5 lg:place-self-center lg:pt-0" />
-        </div>
+        {steps.map((item) => {
+          return (
+            <div key={item.alt} class="flex justify-center  flex-col lg:flex-col">
+              <div>
+                <h1 class="text-secondary flex  flex-row justify-center pt-12 text-8xl ">
+                  {" "}
+                  {item.alt}{" "}
+                  <p class="text-secondary  w-48  justify-end self-end p-5 pl-2 pt-0 text-lg   ">
+                    {item.text}
+                  </p>{" "}
+                </h1>
+              </div>
+              <item.src class=" self-center pt-5 lg:place-self-center lg:pt-0" />
+            </div>)
+        })}
       </div>
     </div>
   );
