@@ -14,6 +14,7 @@ import Matcha from "../assets/img/matcha.png?jsx";
 import Herbal from "../assets/img/herbal.png?jsx";
 import Smoothie from "../assets/img/smoothie.png?jsx";
 import Cha from "../assets/img/cha.png?jsx";
+import OnMap from "../assets/img/map.png?jsx";
 
 export const Land = component$(() => {
   return (
@@ -234,13 +235,61 @@ export const Footed = component$(() => {
     </div>
   );
 });
+const Location = component$(() => {
+  return (
+    <div class="flex h-fit flex-col items-center  justify-center gap-2 self-center bg-white  bg-no-repeat p-5  text-center   lg:h-fit">
+      <div class="grid    lg:grid-cols-2 lg:gap-24  lg:px-52 ">
+        <div class="w-full lg:self-center">
+          <h1 class=" text-primary font-mali flex flex-row gap-3 pl-8  text-center text-2xl  ">
+            <Lucid.MapPinIcon color="#175B43" class=" self-center " />
+            Store Location
+          </h1>
+          <div class="flex flex-col  self-center p-8 pb-4 pt-4 lg:flex-row">
+            <Lucid.QuoteIcon
+              color="#BFDFB7"
+              class="  h-8 w-16 rotate-180 text-white"
+            />
+
+            <OnMap />
+            <Lucid.QuoteIcon
+              color="#BFDFB7"
+              class=" h-8    w-16 rotate-180 scale-[-1]  self-end text-white"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 self-center pt-12">
+          <h1 class="font-normal text-black "> Downtown Montreal </h1>
+          <h1 class="text-background_1 font-medium">
+            {" "}
+            2471 Notre-Dame St. W, Montreal, Quebec H3J 1N6{" "}
+          </h1>
+          <h1 class="font-medium text-black">
+            {" "}
+            Our coffee shop is nestled in the heart of downtown Montreal, where
+            the city's vibrant energy surrounds us. It's the perfect spot to
+            unwind and enjoy exceptional coffee, whether you're beginning your
+            day or seeking a break from the city's hustle and bustle. Come visit
+            us and experience our cozy corner in downtown Montreal!{" "}
+          </h1>
+          <Link
+            href="/products"
+            class="bg-secondary cursor-pointer self-start rounded-lg p-1 px-2"
+          >
+            {" "}
+            Order now{" "}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+});
 
 const Comment = component$(() => {
   return (
     <div class="bg-secondary flex h-fit flex-col  items-center justify-center gap-2 self-center  bg-no-repeat p-5  text-center   lg:h-fit">
       <div class="grid    lg:grid-cols-2 lg:gap-24  lg:px-52 ">
         <div class="w-full lg:self-end">
-          <h1 class="font-mali pt-8 text-center text-2xl text-white lg:text-left">
+          <h1 class=" font-mali pt-8   text-center text-2xl text-white">
             {" "}
             From Beans to Bliss: Why I Love Coffee Now
           </h1>
@@ -314,7 +363,7 @@ export default component$(() => {
       <Description />
       <Custom />
       <Comment />
-      <Footer />
+      <Location />
     </main>
   );
 });
