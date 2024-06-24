@@ -8,6 +8,12 @@ import * as Lucid from "lucide-qwik";
 import Step1 from "../assets/img/step1.png?jsx";
 import Step2 from "../assets/img/step2.png?jsx";
 import Step3 from "../assets/img/step3.png?jsx";
+import Bubble from "../assets/img/bubble.png?jsx";
+import Matcha from "../assets/img/matcha.png?jsx";
+import Herbal from "../assets/img/herbal.png?jsx";
+import Smoothie from "../assets/img/smoothie.png?jsx";
+import Cha from "../assets/img/cha.png?jsx";
+
 
 export const Land = component$(() => {
   return (
@@ -35,23 +41,23 @@ export const Land = component$(() => {
 export const Featured = component$(() => {
   const food = [
     {
-      src: "../src/assets/img/herbal.png",
+      src: Herbal,
       alt: "Refreshing Herbal Tea",
     },
     {
-      src: "../src/assets/img/smoothie.png",
+      src: Smoothie,
       alt: "Chocolate Smoothie",
     },
     {
-      src: "../src/assets/img/bubble.png",
+      src: Bubble,
       alt: "Bubble Tea",
     },
     {
-      src: "../src/assets/img/cha.png",
+      src: Cha,
       alt: "Cha Nom Thai Tea",
     },
     {
-      src: "../src/assets/img/matcha.png",
+      src: Matcha,
       alt: "Cold Matcha with Milk",
     },
   ];
@@ -85,13 +91,8 @@ export const Featured = component$(() => {
               key={item.alt}
               class="m-5 flex flex-col content-center justify-evenly text-center lg:px-0   "
             >
-              <img
-                width={750}
-                height={600}
-                class="h-80  w-96 lg:h-72 lg:w-60"
-                src={item.src}
-                alt={item.alt}
-              />
+              <item.src />
+
               <h1 class=" text-center text-2xl text-black"> {item.alt}</h1>
             </div>
           );
