@@ -6,6 +6,7 @@ import GreenLine from "../assets/img/greenline.svg?jsx";
 import * as Lucid from "lucide-qwik";
 
 import Step1 from "../assets/img/step1.png?jsx";
+import CoffeBG from "../assets/img/coffenobg.png?jsx";
 import Step2 from "../assets/img/step2.png?jsx";
 import Step3 from "../assets/img/step3.png?jsx";
 import Bubble from "../assets/img/bubble.png?jsx";
@@ -14,7 +15,6 @@ import Herbal from "../assets/img/herbal.png?jsx";
 import Smoothie from "../assets/img/smoothie.png?jsx";
 import Cha from "../assets/img/cha.png?jsx";
 import Coffee from "../assets/img/coffee.png?jsx";
-
 
 export const Land = component$(() => {
   return (
@@ -130,7 +130,6 @@ export const Description = component$(() => {
 });
 
 export const Custom = component$(() => {
-
   const steps = [
     {
       src: Step1,
@@ -149,9 +148,7 @@ export const Custom = component$(() => {
     },
   ];
 
-
   return (
-
     <div
       id="#custom"
       class="   flex h-fit  flex-col     bg-white bg-cover bg-no-repeat  p-10 text-green-100 lg:h-fit  "
@@ -167,7 +164,10 @@ export const Custom = component$(() => {
       <div class="flex flex-col pl-8  lg:flex-row lg:gap-60 ">
         {steps.map((item) => {
           return (
-            <div key={item.alt} class="flex justify-center  flex-col lg:flex-col">
+            <div
+              key={item.alt}
+              class="flex flex-col  justify-center lg:flex-col"
+            >
               <div>
                 <h1 class="text-secondary flex  flex-row justify-center pt-12 text-8xl ">
                   {" "}
@@ -178,7 +178,8 @@ export const Custom = component$(() => {
                 </h1>
               </div>
               <item.src class=" self-center pt-5 lg:place-self-center lg:pt-0" />
-            </div>)
+            </div>
+          );
         })}
       </div>
     </div>
@@ -235,6 +236,61 @@ export const Footed = component$(() => {
   );
 });
 
+const Comment = component$(() => {
+  return (
+    <div class="bg-secondary flex h-fit  flex-col items-center justify-center gap-2  bg-no-repeat p-5  text-center   lg:h-fit">
+      <div class="grid grid-cols-2 gap-24 ">
+        <div>
+          <h1 class="font-mali pt-8 text-2xl text-white">
+            {" "}
+            From Beans to Bliss: Why I Love Coffee Now
+          </h1>
+          <div class="flex flex-row p-8 pb-4">
+            <Lucid.QuoteIcon
+              color="#BFDFB7"
+              class="  h-8 w-16 rotate-180 text-white"
+            />
+            <h2 class="flex w-96 flex-row gap-5 text-center text-xl">
+              Every cup at Coffee Now is a masterpiece in itself, crafted with
+              precision and passion by their talented baristas. Whether it's a
+              velvety smooth latte adorned with delicate latte art or a bold
+              espresso that packs a punch, each sip is a testament to their
+              commitment to quality.
+            </h2>
+
+            <Lucid.QuoteIcon
+              color="#BFDFB7"
+              class=" h-8    w-16 rotate-180 scale-[-1]  self-end text-white"
+            />
+          </div>
+          <div class="flex flex-row justify-center gap-5">
+            {" "}
+            <div class="flex flex-col  content-center gap-2 self-center ">
+              <img
+                width={100}
+                height={100}
+                class="self-center  rounded-full"
+                src="https://randomuser.me/api/portraits/men/23.jpg"
+              />
+            </div>
+            <div class="self-center">
+              <h1 class="font-mali text-background_2 self-center text-xl">
+                {" "}
+                - Jean-philippe
+              </h1>
+              <h2 class="font-mali self-center text-xl text-white">
+                {" "}
+                Developper
+              </h2>
+            </div>
+          </div>
+        </div>
+        <CoffeBG class=" flex h-96 w-96 justify-end self-end" />
+      </div>
+    </div>
+  );
+});
+
 export const Footer = component$(() => {
   return (
     <div class="flex h-fit items-center justify-center bg-white bg-cover bg-no-repeat p-5 text-center  text-green-100  lg:h-fit">
@@ -258,6 +314,7 @@ export default component$(() => {
       <Featured />
       <Description />
       <Custom />
+      <Comment />
       <Footer />
     </main>
   );
