@@ -14,7 +14,6 @@ import Matcha from "../assets/img/matcha.png?jsx";
 import Herbal from "../assets/img/herbal.png?jsx";
 import Smoothie from "../assets/img/smoothie.png?jsx";
 import Cha from "../assets/img/cha.png?jsx";
-import Coffee from "../assets/img/coffee.png?jsx";
 
 export const Land = component$(() => {
   return (
@@ -238,14 +237,14 @@ export const Footed = component$(() => {
 
 const Comment = component$(() => {
   return (
-    <div class="bg-secondary flex h-fit  flex-col items-center justify-center gap-2  bg-no-repeat p-5  text-center   lg:h-fit">
-      <div class="grid grid-cols-2 gap-24 ">
-        <div>
-          <h1 class="font-mali pt-8 text-2xl text-white">
+    <div class="bg-secondary flex h-fit flex-col  items-center justify-center gap-2 self-center  bg-no-repeat p-5  text-center   lg:h-fit">
+      <div class="grid w-full grid-cols-2 gap-24 px-52 ">
+        <div class="self-end">
+          <h1 class="font-mali pt-8 text-left text-2xl text-white">
             {" "}
             From Beans to Bliss: Why I Love Coffee Now
           </h1>
-          <div class="flex flex-row p-8 pb-4">
+          <div class="flex flex-row self-center p-8 pb-4">
             <Lucid.QuoteIcon
               color="#BFDFB7"
               class="  h-8 w-16 rotate-180 text-white"
@@ -285,7 +284,7 @@ const Comment = component$(() => {
             </div>
           </div>
         </div>
-        <CoffeBG class=" flex h-96 w-96 justify-end self-end" />
+        <CoffeBG class=" flex h-[500px] w-[400px] justify-end self-end" />
       </div>
     </div>
   );
