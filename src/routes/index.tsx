@@ -143,7 +143,7 @@ export const Custom = component$(() => {
         </h1>
       </div>
       <div class="flex flex-col pl-8  lg:flex-row lg:gap-60 ">
-        <div class="flex  flex-row lg:flex-col">
+        <div class="flex  flex-col lg:flex-col">
           <div>
             <h1 class="text-secondary flex  flex-row pt-12 text-8xl ">
               {" "}
@@ -156,7 +156,7 @@ export const Custom = component$(() => {
           <h1 class="text-secondary text-2xl"></h1>
           <Step1 class=" self-center pt-5 lg:place-self-center lg:pt-0" />
         </div>
-        <div class="flex  flex-row lg:flex-col">
+        <div class="flex  flex-col lg:flex-col">
           <h1 class="text-secondary flex w-48 flex-row pt-12 text-8xl ">
             {" "}
             2{" "}
@@ -166,7 +166,7 @@ export const Custom = component$(() => {
           </h1>
           <Step2 class="  self-center pt-5 lg:place-self-center lg:pt-0" />
         </div>
-        <div class="flex  flex-row lg:flex-col">
+        <div class="flex  flex-col lg:flex-col">
           <h1 class="text-secondary flex w-48 flex-row pt-12 text-8xl ">
             {" "}
             3{" "}
