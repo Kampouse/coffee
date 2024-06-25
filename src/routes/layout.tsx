@@ -1,7 +1,7 @@
 import { component$, Slot, useSignal, type Signal } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Header from "~/components/Header";
-import { Footed } from ".";
+import Footer from "~/components/Footer";
 
 import {
   useContextProvider,
@@ -25,9 +25,9 @@ export default component$(() => {
   return (
     <>
       <Header />
-      <div class=" bg-[#cbe7c3] pt-10">
+      <div class=" bg-secondary pt-10">
         <Slot />
-        <Footed />
+        <Footer />
       </div>
     </>
   );

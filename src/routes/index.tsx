@@ -245,16 +245,8 @@ const Location = component$(() => {
             Store Location
           </h1>
           <div class="flex flex-col  self-center p-8 pb-4 pt-4 lg:flex-row">
-            <Lucid.QuoteIcon
-              color="#BFDFB7"
-              class="  h-8 w-16 rotate-180 text-white"
-            />
-
             <OnMap />
-            <Lucid.QuoteIcon
-              color="#BFDFB7"
-              class=" h-8    w-16 rotate-180 scale-[-1]  self-end text-white"
-            />
+
           </div>
         </div>
         <div class="flex flex-col gap-2 self-center pt-12">
@@ -273,7 +265,7 @@ const Location = component$(() => {
           </h1>
           <Link
             href="/products"
-            class="bg-secondary cursor-pointer self-start rounded-lg p-1 px-2"
+            class="bg-secondary self-center cursor-pointer  rounded-lg p-2 mt-2 "
           >
             {" "}
             Order now{" "}
@@ -296,7 +288,7 @@ const Comment = component$(() => {
           <div class="flex flex-col  self-center p-8 pb-4 lg:flex-row">
             <Lucid.QuoteIcon
               color="#BFDFB7"
-              class="  h-8 w-16 rotate-180 text-white"
+              class="  h-8 w-16   text-white"
             />
             <h2 class="flex w-96 flex-col gap-5 text-center text-xl lg:flex-row">
               Every cup at Coffee Now is a masterpiece in itself, crafted with
@@ -308,7 +300,7 @@ const Comment = component$(() => {
 
             <Lucid.QuoteIcon
               color="#BFDFB7"
-              class=" h-8    w-16 rotate-180 scale-[-1]  self-end text-white"
+              class=" h-8    w-16   self-end text-white"
             />
           </div>
           <div class="flex flex-row justify-center gap-5">

@@ -21,11 +21,12 @@ export default component$(() => {
       </div>
       <div class="flex content-center justify-center items-center">
         <div
-          class="flex justify-end px-5  md:flex lg:flex gap-5 "
+          class="flex justify-end px-5  md:flex gap-5 "
         >
           <Link href="/products" class="content-nd cursor-pointer hover:bg-scondary_hover   transition ease-linear p-3 border rounded-lg   border-secondary ">
             {" "}
             Menu
+
             {" "}
           </Link>
           <Link href="/products" class="content-nd cursor-pointer hover:bg-scondary_hover   transition ease-linear p-3 border rounded-lg   border-secondary ">
