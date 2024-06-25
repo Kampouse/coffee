@@ -25,12 +25,17 @@ export default component$(() => {
           <h1 class="text-background_1   text-lg w-52">Phone number</h1>
           <h1 class="">418 123 123</h1>
         </div>
-        <div class="p-1  flex-row gap-2 content-center ">
+        <div class="p-1 lg:mt-16  flex-row gap-2 content-center ">
+
           <h1 class="text-background_1">
             follow us on
           </h1>
-          <InstagramIcon class="w-6 h-6 m-2" />
-          <FacebookIcon class="w-6 h-6 m-2" />
+          <div class=" flex lg:flex-col content-center flex-start lg:self-center">
+
+            <InstagramIcon class="w-6 h-6 m-2 self-center" />
+
+            <FacebookIcon class="w-6 h-6 m-2 self-center" />
+          </div>
         </div>
       </div>
     </div>

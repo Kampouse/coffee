@@ -92,7 +92,7 @@ export const Featured = component$(() => {
               key={item.alt}
               class="m-5 flex flex-col content-center justify-evenly text-center lg:px-0   "
             >
-              <item.src />
+              <item.src class="rounded-lg" />
               <h1 class=" text-center text-2xl text-black"> {item.alt}</h1>
             </div>
           );
@@ -177,7 +177,7 @@ export const Custom = component$(() => {
                   </p>{" "}
                 </h1>
               </div>
-              <item.src class=" self-center pt-5 lg:place-self-center lg:pt-0" />
+              <item.src class="  self-center pt-5 lg:place-self-center lg:pt-0" />
             </div>
           );
         })}
@@ -186,55 +186,7 @@ export const Custom = component$(() => {
   );
 });
 
-export const Footed = component$(() => {
-  return (
-    <div class=" flex-col bg-primary py-3">
-      <div class="flex  w-screen  justify-center  bg-primary bg-no-repeat  p-5 pb-0 text-center   text-green-100 lg:mx-[30em] lg:w-1/2"></div>
 
-      <div class="mb-5 ml-5  grid  grid-cols-4 gap-5">
-        <div class="flex  ">
-          <div class="justify-top  ml-5   flex flex-col ">
-            <div class="flex   flex-row     ">
-              <a
-                href="https://x.com/jemartel98"
-                aria-label="twitter"
-                target="_blank"
-                class="flex flex-col justify-start gap-2 p-2 hover:underline lg:flex-row"
-              >
-                <Lucid.TwitterIcon />
-              </a>
-            </div>
-            <div class="flex  flex-row content-center justify-center">
-              <a
-                arial-label="linkedin"
-                href="https://x.com/buymeacoffee"
-                target="_blank"
-                class="flex flex-col gap-2 p-2 text-lg hover:underline  lg:flex-row"
-              >
-                <Lucid.LinkedinIcon />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col ">
-          <h1 class="mb-2 text-2xl"> Contact</h1>
-          <h1 class="text-sm">info@jemarte.dev</h1>
-          <h1> 111-111-111</h1>
-        </div>
-        <div class="mx-5 flex flex-col">
-          <h1 class="mb-2 text-2xl"> Find us</h1>
-          <h1 class="text-sm"> somwhere on the street </h1>
-          <h1> Montreal</h1>
-        </div>
-        <div class="flex flex-col">
-          <h1 class="mb-2 text-2xl"> Legals</h1>
-          <h1> privacy policy</h1>
-          <h1> term & condition </h1>
-        </div>
-      </div>
-    </div>
-  );
-});
 const Location = component$(() => {
   return (
     <div class="flex h-fit flex-col items-center  justify-center gap-2 self-center bg-white  bg-no-repeat p-5  text-center   lg:h-fit">
