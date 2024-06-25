@@ -30,7 +30,7 @@ export default component$(() => {
           <h1 class="text-background_1">
             follow us on
           </h1>
-          <div class=" flex lg:flex-col content-center flex-start lg:self-center">
+          <div class=" flex  content-center flex-start lg:self-center">
 
             <InstagramIcon class="w-6 h-6 m-2 self-center" />
 
