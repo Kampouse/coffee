@@ -17,20 +17,30 @@ export default component$(() => {
       </div>
       <div class="lg:pl-32 pl-10 flex lg:flex-row flex-col lg:gap-32 ">
         <div class="p-1 content-center">
-          <h1 class=" text-left text-background_1 text-lg ">Location</h1>
-          <h1 class="">2471 Notre-Dame St. W, Montreal, Quebec H3J 1N6</h1>
+          <div>
+            <h1 class=" text-left text-background_1 text-lg ">Location</h1>
+            <h1 class="">2471 Notre-Dame St. W, Montreal, Quebec H3J 1N6</h1>
+          </div>
+          <div>
+            <h1 class=" text-left text-background_1 text-lg ">Busness hours</h1>
+            <h1 class="">Mon - Fri : 6 am - 10pm</h1>
+
+            <h1 class=" ">
+              Sat- Sun: 8 am - 5pm
+            </h1>
+          </div>
+
         </div>
         <div class="p-1 content-center">
-
           <h1 class="text-background_1   text-lg w-52">Phone number</h1>
           <h1 class="">418 123 123</h1>
         </div>
-        <div class="p-1 lg:mt-16  flex-row gap-2 content-center ">
+        <div class="p-1 lg:mt-16  flex-row gap-2  ">
 
           <h1 class="text-background_1">
             follow us on
           </h1>
-          <div class=" flex  content-center flex-start lg:self-center">
+          <div class=" flex   flex-start lg:self-center">
 
             <InstagramIcon class="w-6 h-6 m-2 self-center" />
 

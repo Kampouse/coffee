@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, useNavigate } from "@builder.io/qwik-city";
 
-
 interface ProductProps {
   title: string, subtitle: string, price: string
 
@@ -15,7 +14,7 @@ export const ProductCard = component$<ProductProps>(({ title = "title", subtitle
   return (
     <div class="cursor-pointer">
       <div onClick$={() => navigate("/products/" + title)} class="  h-64 content-center flex justify-center bg-background_2 rounded-lg">
-        <img width={100} height={100} src="https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max" class=" w-full" />
+        <img width={335} height={256} src="https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max" class=" w-full" />
       </div>
       <div class="px-2 text-black">
         <div class="flex flex-row w-full justify-between mt-2">
