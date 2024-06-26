@@ -1,47 +1,53 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, useNavigate } from "@builder.io/qwik-city";
-export const ProductCard = component$((props: { title: string }) => {
+
+
+interface ProductProps {
+  title: string, subtitle: string, price: string
+
+
+
+}
+
+export const ProductCard = component$<ProductProps>(({ title = "title", subtitle = "subtitle", price = "hello" }) => {
 
   const navigate = useNavigate();
-
-
   return (
-    <div onClick$={() => navigate("/products/" + props.title)}>
-      <div class=" flex align-middle  justify-center lg:h-full h-44   border  lg:rounded  rounded-2xl  border-primary">
-        <Link href={"/products/" + props.title} class=" self-center text-center"> {props.title} </Link>
-
+    <div class="cursor-pointer">
+      <div onClick$={() => navigate("/products/" + title)} class="  h-64 content-center flex justify-center bg-background_2 rounded-lg">
+        <img width={100} height={100} src="https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max" class=" w-full" />
+      </div>
+      <div class="px-2 text-black">
+        <div class="flex flex-row w-full justify-between mt-2">
+          <Link href={"/products/" + title} class=" text-2xl font-mali font-medium leading-6"> {title} </Link>
+          <h1 class="text-end self-end pr-5  text-secondary"> {price} </h1>
+        </div>
+        <h2>{subtitle}</h2>
       </div>
     </div>
-
   );
 });
-
-
-
 export const Tables = component$(() => {
   return (
-    <div class=" bg-white   py-2 justify-center lg:grid  flex lg:grid-cols-3  text-black  md:flex-col lg:flex-row flex-col  lg:gap-5  md:gap-2    gap-4 px-4 lg:px-32 lg:py-5   ">
-      <ProductCard title="coffee" />
-      <ProductCard title="merch" />
-      <ProductCard title="card" />
-    </div >
+    <div>
+      <div class=" my-5 mx-64 grid grid-cols-3 gap-4">
+        <ProductCard title="coffee" subtitle="good" price="10$" />
+        <ProductCard title="merch" subtitle="subtitle" price="10$" />
+        <ProductCard title="merch" subtitle="subtitle" price="10$" />
+      </div >
+    </div>
   );
 });
 
 export default component$(() => {
   return (
-    <main class="lg:grid lg:grid-rows-3  bg-white ">
+    <main class="lg:flex flex-col  h-fit  pt-16  bg-white ">
 
-
-      <div class=" lg:h-[25em] h-[20em]  content-center  bg-red-300">
-
-        <h1 class=" text-center ">Featured products ????</h1>
+      <h1 class="text-black text-left  font-mali mx-72 mt-8 text-3xl "> Top Favourites </h1>
+      <div class="mb-16">
+        <Tables />
+        <Tables />
       </div>
-
-
-      <Tables />
-      <Tables />
-
     </main>
   );
 });
