@@ -42,11 +42,31 @@ export const Tables = component$(() => {
 export default component$(() => {
   return (
     <main class="lg:flex flex-col  h-fit  pt-16  bg-white ">
+      <div class="flex flex-row">
+        <div class="h-full bg-white pl-12 pt-12 w-96">
+          <div class="flex flex-col gap-3 font-mali">
+            <div>
+              <h1 class="bg-white text-black text-lg font-bold font-mali"> Drinks</h1>
+              <h1 class="bg-white text-black text-lg">heelo</h1>
+            </div>
+            <div>
+              <h1 class="bg-white text-black text-lg font-bold font-mali"> Food</h1>
+              <h1 class="bg-white text-black text-lg">heelo</h1>
+            </div>
+            <div>
+              <h1 class="bg-white text-black text-lg font-bold font-mali"> Coffe beans</h1>
+              <h1 class="bg-white text-black text-lg">heelo</h1>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1 class="text-black text-left  font-mali mx-72 mt-8 text-3xl "> Top Favourites </h1>
+          <div class="mb-16">
 
-      <h1 class="text-black text-left  font-mali mx-72 mt-8 text-3xl "> Top Favourites </h1>
-      <div class="mb-16">
-        <Tables />
-        <Tables />
+            <Tables />
+            <Tables />
+          </div>
+        </div>
       </div>
     </main>
   );
