@@ -313,7 +313,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "best coffee you can buy ",
+  title: "Coffee Now",
   meta: [
     {
       name: "description",

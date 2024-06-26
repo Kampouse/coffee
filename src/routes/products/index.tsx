@@ -1,4 +1,6 @@
 import { component$ } from "@builder.io/qwik";
+
+import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link, useNavigate } from "@builder.io/qwik-city";
 
 interface ProductProps {
@@ -7,6 +9,22 @@ interface ProductProps {
 
 
 }
+export const head: DocumentHead = {
+  title: "Coffee Now - Products",
+  meta: [
+    {
+      name: "description",
+      content: "smooth coffee is good",
+      media:
+        "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
+    },
+  ],
+};
+
+
+
+
+
 
 export const ProductCard = component$<ProductProps>(({ title = "title", subtitle = "subtitle", price = "hello" }) => {
 
