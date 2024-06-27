@@ -6,9 +6,7 @@
   },
   "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
   "private": true,
-  "trustedDependencies": [
-    "sharp"
-  ],
+  "trustedDependencies": ["sharp"],
   "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
   "type": "module",
   "scripts": {
@@ -25,7 +23,8 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "git": "pnpm run fmt && pnpm run lint   && pnpm run build && npx  vercel deploy "
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.5.5",

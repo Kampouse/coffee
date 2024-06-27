@@ -14,7 +14,7 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "smooth coffee is good",
+      content: "best coffee in town",
       media:
         "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
     },

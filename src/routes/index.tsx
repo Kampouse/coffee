@@ -307,14 +307,44 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "Coffee Now",
-  meta: [
-    {
-      name: "description",
-      content: "smooth coffee is good",
-      media:
-        "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
-    },
-  ],
+export const head: DocumentHead = () => {
+  return {
+    title: "coffee now",
+    meta: [
+      {
+        property: "og:image",
+        content:
+          "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
+      },
+      {
+        property: "og:description",
+        content:
+          "Coffee Now is a coffee shop that offers a wide range of coffee drinks, from classic espressos to seasonal lattes. Our coffee is sourced from the best coffee farms around the world and roasted to perfection. We take pride in serving the best coffee in town, and our baristas are dedicated to crafting the perfect cup for every customer. Visit us today and experience the magic of Coffee Now!",
+      },
+      {
+        property: "og:image:width",
+        content: "1200",
+      },
+      {
+        property: "og:image:height",
+        content: "600",
+      },
+      {
+        property: "og:image:alt",
+        content: "leafs",
+      },
+      {
+        property: "og:site_name",
+        content: "coffee now",
+      },
+      {
+        property: "og:title",
+        content: "coffee now - the best coffee in town",
+      },
+      {
+        property: "og:url",
+        content: "https://coffeenow.com",
+      },
+    ],
+  };
 };
