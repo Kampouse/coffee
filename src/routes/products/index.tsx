@@ -4,10 +4,10 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link, useNavigate } from "@builder.io/qwik-city";
 
 interface ProductProps {
-  title: string, subtitle: string, price: string
-
-
-
+  title: string;
+  subtitle: string;
+  price: string;
+  image: string | undefined;
 }
 export const head: DocumentHead = {
   title: "Coffee Now - Products",
@@ -21,94 +21,164 @@ export const head: DocumentHead = {
   ],
 };
 
-
-
-
-
-
-export const ProductCard = component$<ProductProps>(({ title = "title", subtitle = "subtitle", price = "hello" }) => {
-
-  const navigate = useNavigate();
-  return (
-    <div class="cursor-pointer">
-      <div onClick$={() => navigate("/products/" + title)} class="  h-64 content-center flex justify-center bg-background_2 rounded-lg">
-        <img width={335} height={256} src="https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max" class=" w-full" />
-      </div>
-      <div class="px-2 text-black">
-        <div class="flex flex-row w-full justify-between mt-2">
-          <Link href={"/products/" + title} class=" text-2xl font-mali font-medium leading-6"> {title} </Link>
-          <h1 class="text-end self-end pr-5  text-secondary"> {price} </h1>
+export const ProductCard = component$<ProductProps>(
+  ({
+    title = "title",
+    subtitle = "subtitle",
+    price = "hello",
+    image = "https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max",
+  }) => {
+    const navigate = useNavigate();
+    return (
+      <div class="">
+        <div
+          onClick$={() => navigate("/products/" + title)}
+          class="  flex h-64 cursor-pointer content-center justify-center rounded-lg bg-background_2"
+        >
+          <img width={335} height={256} src={image} class=" w-full" />
         </div>
-        <h2>{subtitle}</h2>
+        <div class="px-2 text-black">
+          <div class="mt-2 flex w-full flex-row justify-between">
+            <Link
+              href={"/products/" + title}
+              class=" cursor-pointer font-mali text-2xl font-medium leading-6"
+            >
+              {" "}
+              {title}{" "}
+            </Link>
+            <h1 class="self-end pr-5 text-end  text-secondary"> {price} </h1>
+          </div>
+          <h2>{subtitle}</h2>
+        </div>
       </div>
-    </div>
-  );
-});
-export const Tables = component$(() => {
+    );
+  },
+);
+
+interface TablesProps {
+  products: {
+    title: string;
+    subtitle: string;
+    price: string;
+    image: string | undefined;
+  }[];
+}
+
+export const Tables = component$<TablesProps>(({ products }) => {
   return (
     <div>
-      <div class=" my-5 lg:mx-64 mx-5 lg:grid lg:grid-cols-3 gap-4">
-        <ProductCard title="coffee" subtitle="good" price="10$" />
-        <ProductCard title="merch" subtitle="subtitle" price="10$" />
-        <ProductCard title="merch" subtitle="subtitle" price="10$" />
-      </div >
+      <div class=" mx-5 my-5 gap-4 lg:mx-64 lg:grid lg:grid-cols-3">
+        {products.map((e) => (
+          <ProductCard key={e.title} {...e} />
+        ))}
+      </div>
     </div>
   );
 });
 
 interface SectionsProps {
-  title: string, contents: string[]
+  title: string;
+  contents: string[];
 }
 export const Sections = component$<SectionsProps>(({ title, contents }) => {
   return (
     <section class="flex flex-col gap-3  ">
-      <details class=" flex flex-col">
-        <summary style=" display: block; list-style: none;" class="bg-white cursor-pointer  font-medium text-black text-lg  ">  {title} </summary >
+      <details open={true} class=" flex flex-col">
+        <summary
+          style=" display: block; list-style: none;"
+          class="cursor-pointer bg-white  text-lg font-bold text-black  "
+        >
+          {" "}
+          {title}{" "}
+        </summary>
         {contents.map((content) => {
-          return <Link href={"/products/" + content} key={content} class="bg-white text-black text-md font-light cursor-pointer"> {content} </Link  >
+          return (
+            <Link
+              href={"/products/" + encodeURI(content)}
+              key={content}
+              class="  text-md bg-white font-light text-black decoration-wavy decoration-2 hover:underline"
+            >
+              {" "}
+              {content}{" "}
+            </Link>
+          );
         })}
-      </details >
+      </details>
     </section>
   );
 });
 
 export default component$(() => {
+  const hot = ["Espresso", "Latte", "Cappuccino", "Mocha", "Macchiato"];
+  const cold = ["Iced Coffee", "Iced Latte", "Iced Mocha", "Iced Macchiato"];
+  const food = ["Sandwich", "Cake", "Cookie", "Muffin"];
+  const beans = ["Light Roast", "Dark Roast", "No Roast"];
+  const img = undefined;
+  const products = [
+    {
+      title: "Dark Coffee",
+      subtitle: "chocolate",
+      price: "4.5$",
+      image: img,
+    },
+    {
+      title: "hoodie",
+      subtitle: "freshly made ",
+      price: "45$",
+      image: img,
+    },
+    {
+      title: "coffee beans",
+      subtitle: "100 grams packing",
+      price: "15$",
+      image: img,
+    },
+  ];
 
-  //type of hot drinks
-
-
-
-  const content = ["Espresso", "Latte", "Cappuccino", "Mocha", "Macchiato"]
-
-
+  const product2 = [
+    {
+      title: "Light Coffee",
+      subtitle: "buttery",
+      price: "6.5$",
+      image: img,
+    },
+    {
+      title: "Matcha",
+      subtitle: "the best",
+      price: "7.5$",
+      image: img,
+    },
+    {
+      title: "coffee plant",
+      subtitle: "small plant",
+      price: "15$",
+      image: img,
+    },
+  ];
 
   return (
-    <main class="lg:flex flex-col  h-fit  pt-16  bg-white ">
-      <div class="flex flex-row">
-        <div class="h-full bg-white lg:pl-12 lg:pt-12 lg:w-96">
-          <div class=" hidden lg:flex lg:flex-col gap-3 font-mali">
+    <main class="h-fit flex-col bg-white px-32 pt-16 lg:flex lg:px-0">
+      <div class="lg:flex lg:flex-row">
+        <div class="h-full w-1/3 bg-white lg:w-96 lg:pl-12 lg:pt-12">
+          <div class="hidden gap-3 font-mali lg:flex lg:flex-col">
             <div>
-              <Sections title="Hot Drinks" contents={content} />
-              <Sections title="Cold drinks" contents={content} />
-            </div  >
-
-            <div>
-              <h1 class="bg-white text-black text-lg font-bold font-mali"> Food</h1>
-              <h1 class="bg-white text-black text-md">SOON </h1>
+              <Sections title="Hot Drinks" contents={hot} />
+              <Sections title="Cold drinks" contents={cold} />
+              <Sections title="Food" contents={food} />
             </div>
             <div class="flex flex-col">
-              <h1 class="bg-white text-black text-md font-bold font-mali"> Coffee beans</h1>
-              <Link href="/products/ligh-roast" class="bg-white text-black  text-md">Light Roast</Link>
-              <Link href="/products/dark-roast" class="bg-white text-black  text-md">Dark  Roast</Link>
-              <Link href="/products/no-roast" class="bg-white text-black  text-md">No Roast</Link>
-            </div >
+              <Sections title="Beans" contents={beans} />
+            </div>
           </div>
         </div>
         <div>
-          <h1 class="text-black text-left  font-mali ml-5 lg:mx-72 mt-8 text-3xl "> Top Favourites </h1>
+          <h1 class="ml-5 mt-8 text-center font-mali text-3xl text-black lg:mx-72 lg:text-left ">
+            {" "}
+            Most loved{" "}
+          </h1>
           <div class="mb-16">
-            <Tables />
-            <Tables />
+            <Tables products={products} />
+            <Tables products={product2} />
           </div>
         </div>
       </div>
