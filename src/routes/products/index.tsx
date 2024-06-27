@@ -62,10 +62,10 @@ interface SectionsProps {
 export const Sections = component$<SectionsProps>(({ title, contents }) => {
   return (
     <section class="flex flex-col gap-3  ">
-      <details class="">
+      <details class=" flex flex-col">
         <summary style=" display: block; list-style: none;" class="bg-white cursor-pointer  font-medium text-black text-lg  ">  {title} </summary >
         {contents.map((content) => {
-          return <h1 key={content} class="bg-white text-black text-md font-light cursor-pointer"> {content} </h1 >
+          return <Link href={"/products/" + content} key={content} class="bg-white text-black text-md font-light cursor-pointer"> {content} </Link  >
         })}
       </details >
     </section>
@@ -75,6 +75,9 @@ export const Sections = component$<SectionsProps>(({ title, contents }) => {
 export default component$(() => {
 
   //type of hot drinks
+
+
+
   const content = ["Espresso", "Latte", "Cappuccino", "Mocha", "Macchiato"]
 
 
@@ -93,12 +96,12 @@ export default component$(() => {
               <h1 class="bg-white text-black text-lg font-bold font-mali"> Food</h1>
               <h1 class="bg-white text-black text-md">SOON </h1>
             </div>
-            <div>
+            <div class="flex flex-col">
               <h1 class="bg-white text-black text-md font-bold font-mali"> Coffee beans</h1>
-              <button class="bg-white text-black  text-md">Dark Roast</button>
-              <h1 class="bg-white text-black  text-md">Light Roast</h1>
-              <h1 class="bg-white text-black  text-md">No Roast</h1>
-            </div>
+              <Link href="/products/ligh-roast" class="bg-white text-black  text-md">Light Roast</Link>
+              <Link href="/products/dark-roast" class="bg-white text-black  text-md">Dark  Roast</Link>
+              <Link href="/products/no-roast" class="bg-white text-black  text-md">No Roast</Link>
+            </div >
           </div>
         </div>
         <div>
