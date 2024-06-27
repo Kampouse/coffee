@@ -25,11 +25,11 @@ export const Land = component$(() => {
           {" "}
           10% off your favourite Latte
         </h1>
-        <h5 class=" font-mali text-background_1 py-3 text-center text-2xl font-semibold ">
+        <h5 class=" py-3 text-center font-mali text-2xl font-semibold text-background_1 ">
           Every Tuesday
         </h5>
         <Link
-          class="bg-secondary b mt-4 rounded-lg p-3 text-xl tracking-wider "
+          class="b mt-4 rounded-lg bg-secondary p-3 text-xl tracking-wider "
           href="/products"
         >
           See our Selection
@@ -66,11 +66,11 @@ export const Featured = component$(() => {
   return (
     <section
       id="about"
-      class="font-mali flex h-fit   flex-col bg-white bg-cover  bg-center  bg-no-repeat p-5 px-12 lg:px-20"
+      class="flex h-fit flex-col   bg-white bg-cover bg-center  bg-no-repeat  p-5 px-12 font-mali lg:px-20"
     >
       <div class="grid w-full grid-cols-2 py-10 ">
         <div class="flex w-full  flex-col">
-          <h1 class="text-secondary  w-[12em] text-3xl font-bold md:w-1/2 lg:w-1/2  ">
+          <h1 class="w-[12em]  text-3xl font-bold text-secondary md:w-1/2 lg:w-1/2  ">
             {" "}
             Check out our summer selections{" "}
           </h1>
@@ -79,7 +79,7 @@ export const Featured = component$(() => {
 
         <div class=" hidden flex-row  justify-end md:visible lg:visible lg:flex  ">
           <GreenLine />
-          <h1 class="  text-primary    text-left text-3xl  font-light ">
+          <h1 class="  text-left    text-3xl font-light  text-primary ">
             {" "}
             Curated just for YOU{" "}
           </h1>
@@ -107,7 +107,7 @@ export const Description = component$(() => {
   return (
     <div
       id="#desc"
-      class="bg-second  flex  flex-col justify-center bg-cover   "
+      class="flex  flex-col  justify-center bg-second bg-cover   "
     >
       <div class="my-20 flex flex-col gap-3 px-10 py-3 lg:w-full   lg:p-8 ">
         <h1 class="self-center break-words text-center text-[24px] lg:w-[25em]  ">
@@ -119,7 +119,7 @@ export const Description = component$(() => {
         </h1>
         <Link
           href="/products"
-          class="bg-secondary w-40 self-center rounded-lg  p-3  text-white"
+          class="w-40 self-center rounded-lg bg-secondary  p-3  text-white"
         >
           {" "}
           See our Selection
@@ -157,7 +157,7 @@ export const Custom = component$(() => {
         <h1 class="font-mali text-3xl font-bold text-black">
           Customizing your drink is{" "}
         </h1>
-        <h1 class=" text-secondary font-mali text-3xl font-bold">
+        <h1 class=" font-mali text-3xl font-bold text-secondary">
           as easy as 1 2 3
         </h1>
       </div>
@@ -169,10 +169,10 @@ export const Custom = component$(() => {
               class="flex flex-col  justify-center lg:flex-col"
             >
               <div>
-                <h1 class="text-secondary flex  flex-row justify-center pt-12 text-8xl ">
+                <h1 class="flex flex-row  justify-center pt-12 text-8xl text-secondary ">
                   {" "}
                   {item.alt}{" "}
-                  <p class="text-secondary  w-48  justify-end self-end p-5 pl-2 pt-0 text-lg   ">
+                  <p class="w-48  justify-end  self-end p-5 pl-2 pt-0 text-lg text-secondary   ">
                     {item.text}
                   </p>{" "}
                 </h1>
@@ -186,24 +186,22 @@ export const Custom = component$(() => {
   );
 });
 
-
 const Location = component$(() => {
   return (
     <div class="flex h-fit flex-col items-center  justify-center gap-2 self-center bg-white  bg-no-repeat p-5  text-center   lg:h-fit">
       <div class="grid    lg:grid-cols-2 lg:gap-24  lg:px-52 ">
         <div class="w-full lg:self-center">
-          <h1 class=" text-primary font-mali flex flex-row gap-3 pl-8  text-center text-2xl  ">
+          <h1 class=" flex flex-row gap-3 pl-8 text-center font-mali  text-2xl text-primary  ">
             <Lucid.MapPinIcon color="#175B43" class=" self-center " />
             Store Location
           </h1>
           <div class="flex flex-col  self-center p-8 pb-4 pt-4 lg:flex-row">
             <OnMap />
-
           </div>
         </div>
         <div class="flex flex-col gap-2 self-center pt-12">
           <h1 class="font-normal text-black "> Downtown Montreal </h1>
-          <h1 class="text-background_1 font-medium">
+          <h1 class="font-medium text-background_1">
             {" "}
             2471 Notre-Dame St. W, Montreal, Quebec H3J 1N6{" "}
           </h1>
@@ -217,7 +215,7 @@ const Location = component$(() => {
           </h1>
           <Link
             href="/products"
-            class="bg-secondary self-center cursor-pointer  rounded-lg p-2 mt-2 "
+            class="mt-2 cursor-pointer self-center  rounded-lg bg-secondary p-2 "
           >
             {" "}
             Order now{" "}
@@ -230,18 +228,15 @@ const Location = component$(() => {
 
 const Comment = component$(() => {
   return (
-    <div class="bg-secondary flex h-fit flex-col  items-center justify-center gap-2 self-center  bg-no-repeat p-5  text-center   lg:h-fit">
+    <div class="flex h-fit flex-col items-center  justify-center gap-2 self-center bg-secondary  bg-no-repeat p-5  text-center   lg:h-fit">
       <div class="grid    lg:grid-cols-2 lg:gap-24  lg:px-52 ">
         <div class="w-full lg:self-end">
-          <h1 class=" font-mali pt-8   text-center text-2xl text-white">
+          <h1 class=" pt-8 text-center   font-mali text-2xl text-white">
             {" "}
             From Beans to Bliss: Why I Love Coffee Now
           </h1>
           <div class="flex flex-col  self-center p-8 pb-4 lg:flex-row">
-            <Lucid.QuoteIcon
-              color="#BFDFB7"
-              class="  h-8 w-16   text-white"
-            />
+            <Lucid.QuoteIcon color="#BFDFB7" class="  h-8 w-16   text-white" />
             <h2 class="flex w-96 flex-col gap-5 text-center text-xl lg:flex-row">
               Every cup at Coffee Now is a masterpiece in itself, crafted with
               precision and passion by their talented baristas. Whether it's a
@@ -266,11 +261,11 @@ const Comment = component$(() => {
               />
             </div>
             <div class="self-center">
-              <h1 class="font-mali text-background_2 self-center text-xl">
+              <h1 class="self-center font-mali text-xl text-background_2">
                 {" "}
                 - Jean-philippe
               </h1>
-              <h2 class="font-mali self-center text-xl text-white">
+              <h2 class="self-center font-mali text-xl text-white">
                 {" "}
                 Developper
               </h2>

@@ -30,7 +30,10 @@ export default {
         background_2: "#C2E3A3", // Background_2
         white: "#FFFFFF", // White
       },
-      backgroundImage: { main: "url('/primaryImage.jpg')", second: " url('/coffee.jpg')" },
+      backgroundImage: {
+        main: "url('/primaryImage.jpg')",
+        second: " url('/coffee.jpg')",
+      },
       borderColor: {
         primary: "#000000", // Primary Color
         secondary: "#025949", // Secondary Color

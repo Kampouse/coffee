@@ -3,12 +3,12 @@ import { useLocation } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { CartContext } from "../../layout";
 export default component$(() => {
-  const cart = useContext(CartContext)
+  const cart = useContext(CartContext);
   const location = useLocation();
   const addToCart = $(() => {
-    cart.value = [...cart.value, location.params.name]
-    console.log(cart.value)
-  })
+    cart.value = [...cart.value, location.params.name];
+    console.log(cart.value);
+  });
   return (
     <main class="grid  h-screen grid-flow-row  bg-white p-10  md:grid-flow-row lg:h-[80.6vh]  lg:grid-cols-2 lg:p-20">
       <div class="h-[40vh]  justify-center  rounded-xl bg-gray-100 text-center  text-red-800 lg:h-full">
@@ -33,10 +33,12 @@ export default component$(() => {
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut
         </h1>
-        <button onClick$={() => addToCart()} class="self-center rounded-lg bg-red-500 p-2  text-white">
+        <button
+          onClick$={() => addToCart()}
+          class="self-center rounded-lg bg-red-500 p-2  text-white"
+        >
           Add to cart
         </button>
-
       </div>
     </main>
   );
