@@ -47,7 +47,7 @@ export const ProductCard = component$<ProductProps>(({ title = "title", subtitle
 export const Tables = component$(() => {
   return (
     <div>
-      <div class=" my-5 mx-64 grid grid-cols-3 gap-4">
+      <div class=" my-5 lg:mx-64 mx-5 lg:grid lg:grid-cols-3 gap-4">
         <ProductCard title="coffee" subtitle="good" price="10$" />
         <ProductCard title="merch" subtitle="subtitle" price="10$" />
         <ProductCard title="merch" subtitle="subtitle" price="10$" />
@@ -56,30 +56,54 @@ export const Tables = component$(() => {
   );
 });
 
+interface SectionsProps {
+  title: string, contents: string[]
+}
+export const Sections = component$<SectionsProps>(({ title, contents }) => {
+  return (
+    <section class="flex flex-col gap-3  ">
+      <details class="">
+        <summary style=" display: block; list-style: none;" class="bg-white cursor-pointer  font-medium text-black text-lg  ">  {title} </summary >
+        {contents.map((content) => {
+          return <h1 key={content} class="bg-white text-black text-md font-light cursor-pointer"> {content} </h1 >
+        })}
+      </details >
+    </section>
+  );
+});
+
 export default component$(() => {
+
+  //type of hot drinks
+  const content = ["Espresso", "Latte", "Cappuccino", "Mocha", "Macchiato"]
+
+
+
   return (
     <main class="lg:flex flex-col  h-fit  pt-16  bg-white ">
       <div class="flex flex-row">
-        <div class="h-full bg-white pl-12 pt-12 w-96">
-          <div class="flex flex-col gap-3 font-mali">
+        <div class="h-full bg-white lg:pl-12 lg:pt-12 lg:w-96">
+          <div class=" hidden lg:flex lg:flex-col gap-3 font-mali">
             <div>
-              <h1 class="bg-white text-black text-lg font-bold font-mali"> Drinks</h1>
-              <h1 class="bg-white text-black text-lg">heelo</h1>
-            </div>
+              <Sections title="Hot Drinks" contents={content} />
+              <Sections title="Cold drinks" contents={content} />
+            </div  >
+
             <div>
               <h1 class="bg-white text-black text-lg font-bold font-mali"> Food</h1>
-              <h1 class="bg-white text-black text-lg">heelo</h1>
+              <h1 class="bg-white text-black text-md">SOON </h1>
             </div>
             <div>
-              <h1 class="bg-white text-black text-lg font-bold font-mali"> Coffe beans</h1>
-              <h1 class="bg-white text-black text-lg">heelo</h1>
+              <h1 class="bg-white text-black text-md font-bold font-mali"> Coffee beans</h1>
+              <button class="bg-white text-black  text-md">Dark Roast</button>
+              <h1 class="bg-white text-black  text-md">Light Roast</h1>
+              <h1 class="bg-white text-black  text-md">No Roast</h1>
             </div>
           </div>
         </div>
         <div>
-          <h1 class="text-black text-left  font-mali mx-72 mt-8 text-3xl "> Top Favourites </h1>
+          <h1 class="text-black text-left  font-mali ml-5 lg:mx-72 mt-8 text-3xl "> Top Favourites </h1>
           <div class="mb-16">
-
             <Tables />
             <Tables />
           </div>
