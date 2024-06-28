@@ -87,7 +87,7 @@ export const Sections = component$<SectionsProps>(({ title, contents }) => {
       <details open={true} class=" flex flex-col">
         <summary
           style=" display: block; list-style: none;"
-          class="cursor-pointer bg-white  text-lg font-bold text-black  "
+          class="cursor-pointer bg-white text-3xl  lg:text-lg font-bold text-black  lg:text-left  "
         >
           {" "}
           {title}{" "}
@@ -97,7 +97,7 @@ export const Sections = component$<SectionsProps>(({ title, contents }) => {
             <Link
               href={"/products/" + encodeURI(content)}
               key={content}
-              class="  text-md bg-white font-light text-black decoration-wavy decoration-2 hover:underline"
+              class=" px-14 lg:px-0 lg:text-md text-xl bg-white font-light text-black decoration-wavy decoration-2 hover:underline  lg:text-left  "
             >
               {" "}
               {content}{" "}
@@ -158,18 +158,14 @@ export default component$(() => {
   ];
 
   return (
-    <main class="h-fit flex-col bg-white  pt-16 lg:flex lg:px-0 ">
-      <div class="lg:flex lg:flex-row">
-        <div class="h-full w-1/3 bg-white lg:w-96 lg:pl-12 lg:pt-12">
-          <div class="hidden gap-3 font-mali lg:flex lg:flex-col">
-            <div>
-              <Sections title="Hot Drinks" contents={hot} />
-              <Sections title="Cold drinks" contents={cold} />
-              <Sections title="Food" contents={food} />
-            </div>
-            <div class="flex flex-col">
-              <Sections title="Beans" contents={beans} />
-            </div>
+    <main class="h-fit flex-col bg-white py-16    lg:flex lg:px-0 ">
+      <div class="flex lg:flex-row flex-col">
+        <div class="h-full  bg-white lg:w-96 lg:pl-12 lg:pt-12 lg:order-first order-last self-center lg:self-start place-content-end">
+          <div class="px-5 gap-3 font-mali lg:flex lg:flex-col">
+            <Sections title="Hot Drinks" contents={hot} />
+            <Sections title="Cold drinks" contents={cold} />
+            <Sections title="Food" contents={food} />
+            <Sections title="Beans" contents={beans} />
           </div>
         </div>
         <div>
@@ -177,7 +173,7 @@ export default component$(() => {
             {" "}
             Most loved{" "}
           </h1>
-          <div class="mb-16 px-16">
+          <div class="lg:mb-16 px-16">
             <Tables products={products} />
             <Tables products={product2} />
           </div>
