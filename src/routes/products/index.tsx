@@ -30,12 +30,12 @@ export const ProductCard = component$<ProductProps>(
   }) => {
     const navigate = useNavigate();
     return (
-      <div class="">
+      <div class="w-full">
         <div
           onClick$={() => navigate("/products/" + title)}
-          class="  flex h-64 cursor-pointer content-center justify-center rounded-lg bg-background_2"
+          class=""
         >
-          <img width={335} height={256} src={image} class=" w-full" />
+          <img width={500} height={500} src={image} class="h-full w-full" />
         </div>
         <div class="px-2 text-black">
           <div class="mt-2 flex w-full flex-row justify-between">
@@ -67,9 +67,10 @@ interface TablesProps {
 export const Tables = component$<TablesProps>(({ products }) => {
   return (
     <div>
-      <div class=" mx-5 my-5 gap-4 lg:mx-64 lg:grid lg:grid-cols-3">
+      <div class="  my-5  lg:mx-32 lg:grid lg:grid-cols-3 lg:gap-5">
         {products.map((e) => (
           <ProductCard key={e.title} {...e} />
+
         ))}
       </div>
     </div>
@@ -157,7 +158,7 @@ export default component$(() => {
   ];
 
   return (
-    <main class="h-fit flex-col bg-white px-32 pt-16 lg:flex lg:px-0">
+    <main class="h-fit flex-col bg-white  pt-16 lg:flex lg:px-0 ">
       <div class="lg:flex lg:flex-row">
         <div class="h-full w-1/3 bg-white lg:w-96 lg:pl-12 lg:pt-12">
           <div class="hidden gap-3 font-mali lg:flex lg:flex-col">
@@ -172,11 +173,11 @@ export default component$(() => {
           </div>
         </div>
         <div>
-          <h1 class="ml-5 mt-8 text-center font-mali text-3xl text-black lg:mx-72 lg:text-left ">
+          <h1 class=" mt-8 text-center font-mali text-3xl text-black lg:mx-72 lg:text-left ">
             {" "}
             Most loved{" "}
           </h1>
-          <div class="mb-16">
+          <div class="mb-16 px-16">
             <Tables products={products} />
             <Tables products={product2} />
           </div>
