@@ -10,12 +10,18 @@ export default component$(() => {
     console.log(cart.value);
   });
   return (
-    <main class="grid  h-screen grid-flow-row  bg-white p-10  md:grid-flow-row lg:h-[80.6vh]  lg:grid-cols-2 lg:p-20">
-      <div class="h-[40vh]  justify-center  rounded-xl bg-gray-100 text-center  text-red-800 lg:h-full">
-        <h1 class="  mt-4 text-4xl">{location.params.name}</h1>
+    <main class="mt-10  grid h-full  grid-flow-row bg-white p-10  md:grid-flow-row lg:h-full  lg:grid-cols-2 lg:p-20">
+      <div class="   flex justify-center rounded-xl    p-0 text-center  text-red-800 lg:h-full">
+        <img
+          src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
+          class="h-full w-full self-center rounded-xl "
+          width={500}
+          height={500}
+        />
       </div>
+
       <div class=" flex h-fit w-full flex-col gap-2 self-center text-center align-bottom text-red-800 lg:mx-20  lg:w-fit">
-        <div class="gap-0">
+        <div class="order-first gap-0">
           <h1 class="text-left  text-4xl">Lorem ipsum dolor sit amet</h1>
           <h1 class="w-full p-2 pt-0 text-left">15 CAD </h1>
         </div>
@@ -35,7 +41,7 @@ export default component$(() => {
         </h1>
         <button
           onClick$={() => addToCart()}
-          class="self-center rounded-lg bg-red-500 p-2  text-white"
+          class="self-left order-first rounded-lg bg-red-500 p-2 text-white lg:order-last  lg:self-center"
         >
           Add to cart
         </button>
