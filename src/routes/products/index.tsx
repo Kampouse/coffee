@@ -32,7 +32,12 @@ export const ProductCard = component$<ProductProps>(
     return (
       <div class="w-full">
         <div onClick$={() => navigate("/products/" + title)} class="">
-          <img width={500} height={500} src={image} class=" cursor-pointer h-full w-full  max-w-[350px]" />
+          <img
+            width={500}
+            height={500}
+            src={image}
+            class=" h-full w-full max-w-[350px]  cursor-pointer"
+          />
         </div>
         <div class="px-2 text-black">
           <div class="mt-2 flex w-full flex-row justify-between">
