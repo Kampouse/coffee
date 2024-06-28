@@ -111,10 +111,6 @@ export const Sections = component$<SectionsProps>(({ title, contents }) => {
 });
 
 export default component$(() => {
-  const hot = ["Espresso", "Latte", "Cappuccino", "Mocha", "Macchiato"];
-  const cold = ["Iced Coffee", "Iced Latte", "Iced Mocha", "Iced Macchiato"];
-  const food = ["Sandwich", "Cake", "Cookie", "Muffin"];
-  const beans = ["Light Roast", "Dark Roast", "No Roast"];
   const img = undefined;
   const products = [
     {
@@ -159,16 +155,9 @@ export default component$(() => {
   ];
 
   return (
-    <main class="h-fit flex-col bg-white py-32    lg:flex lg:px-0 ">
+    <main class="h-fit flex-col bg-white py-24    lg:flex lg:px-0 ">
       <div class="flex flex-col lg:flex-row">
-        <div class="order-last  h-full place-content-end self-center bg-white lg:order-first lg:w-96 lg:self-start lg:pl-12 lg:pt-12">
-          <div class="gap-3 px-5 font-mali lg:flex lg:flex-col">
-            <Sections title="Hot Drinks" contents={hot} />
-            <Sections title="Cold drinks" contents={cold} />
-            <Sections title="Food" contents={food} />
-            <Sections title="Beans" contents={beans} />
-          </div>
-        </div>
+        <div class="order-last  h-full place-content-end self-center bg-white lg:order-first  lg:self-start lg:pl-12 lg:pt-12"></div>
         <div>
           <h1 class=" mt-8 text-center font-mali text-3xl text-black lg:mx-72 lg:text-left ">
             {" "}
