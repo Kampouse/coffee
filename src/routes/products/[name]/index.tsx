@@ -10,17 +10,17 @@ export default component$(() => {
     console.log(cart.value);
   });
   return (
-    <main class="mt-10  grid h-full  grid-flow-row bg-white p-10   md:grid-flow-row lg:h-full  lg:grid-cols-2 lg:p-20">
-      <div class="   flex justify-center rounded-xl  p-0 text-center  text-red-800 lg:h-full  lg:px-16 lg:py-16">
+    <main class="  grid h-full  grid-flow-row bg-white   lg:mt-0 mt-32 md:grid-flow-row lg:h-full  lg:grid-cols-2 lg:p-20">
+      <div class="   flex justify-center rounded-xl  p-0 text-center  text-red-800 lg:h-full  lg:px-16 py-0 lg:py-16">
         <img
           src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
-          class="h-full max-h-[32em] w-full  min-w-[20em] self-start rounded-xl lg:min-h-[30em] "
+          class="h-full max-h-[32em] w-full  min-w-[20em]  self-start rounded-xl lg:min-h-[30em] lg:px-20lg:px-20lg:px-20lg:px-20"
           width={500}
           height={500}
         />
       </div>
 
-      <div class=" flex h-fit w-full flex-col gap-2 self-center text-center align-bottom text-red-800 lg:mx-20  lg:w-fit">
+      <div class="flex w-full flex-col gap-2 self-center text-center align-bottom text-red-800 lg:mx-20 lg:w-fit h-full lg:py-16">
         <div class="order-first gap-0">
           <h1 class="text-left  text-4xl">{location.params.name}</h1>
           <h1 class="w-full p-2 pt-0 text-left">15 CAD </h1>

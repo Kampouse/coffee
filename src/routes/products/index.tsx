@@ -38,20 +38,21 @@ export const ProductCard = component$<ProductProps>(
             src={image}
             class=" h-full w-full max-w-[350px]  cursor-pointer"
           />
-        </div>
-        <div class="px-2 text-black">
-          <div class="mt-2 flex w-full flex-row justify-between">
-            <Link
-              href={"/products/" + title}
-              class=" cursor-pointer font-mali text-2xl font-medium leading-6"
-            >
-              {" "}
-              {title}{" "}
-            </Link>
-            <h1 class="self-end pr-5 text-end  text-secondary"> {price} </h1>
+          <div class="p-2 text-black   ">
+            <div class="flex justify-between ">
+              <Link
+                href={"/products/" + title}
+                class=" cursor-pointer font-mali text-2xl font-medium leading-6 "
+              >
+                {" "}
+                {title}{" "}
+              </Link>
+              <h1 class="self-end pr-5 text-end  text-secondary"> {price} </h1>
+            </div>
+            <h2>{subtitle}</h2>
           </div>
-          <h2>{subtitle}</h2>
         </div>
+
       </div>
     );
   },
@@ -158,7 +159,7 @@ export default component$(() => {
     <main class="h-fit flex-col bg-white py-24    lg:flex lg:px-0 ">
       <div class="flex flex-col lg:flex-row">
         <div class="order-last  h-full place-content-end self-center bg-white lg:order-first  lg:self-start lg:pl-12 lg:pt-12"></div>
-        <div>
+        <div class="w-fit">
           <h1 class=" mt-8 text-center font-mali text-3xl text-black lg:mx-72 lg:text-left ">
             {" "}
             Most loved{" "}
@@ -167,7 +168,7 @@ export default component$(() => {
             <Tables products={products} />
             <Tables products={product2} />
           </div>
-        </div>
+        </div >
       </div>
     </main>
   );
