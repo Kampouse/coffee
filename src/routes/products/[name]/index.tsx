@@ -11,10 +11,10 @@ export default component$(() => {
   });
   return (
     <main class="mt-10  grid h-full  grid-flow-row bg-white p-10   md:grid-flow-row lg:h-full  lg:grid-cols-2 lg:p-20">
-      <div class="   flex justify-center rounded-xl  lg:py-16 lg:px-16  p-0 text-center  text-red-800 lg:h-full">
+      <div class="   flex justify-center rounded-xl  p-0 text-center  text-red-800 lg:h-full  lg:px-16 lg:py-16">
         <img
           src="https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max"
-          class="h-full w-full self-start  rounded-xl lg:min-h-[30em] min-w-[20em] max-h-[32em] "
+          class="h-full max-h-[32em] w-full  min-w-[20em] self-start rounded-xl lg:min-h-[30em] "
           width={500}
           height={500}
         />
