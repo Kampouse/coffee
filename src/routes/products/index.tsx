@@ -49,7 +49,7 @@ export const ProductCard = component$<ProductProps>(
               </Link>
               <h1 class="self-end pr-5 text-end  text-secondary"> {price} </h1>
             </div>
-            <h2 class="text-left">{subtitle}</h2 >
+            <h2 class="text-left">{subtitle}</h2>
           </div>
         </div>
       </div>
@@ -155,11 +155,11 @@ export default component$(() => {
   ];
 
   return (
-    <main class="h-fit flex-col bg-white lg:py-24    lg:flex lg:px-0 ">
+    <main class="h-fit flex-col bg-white lg:flex    lg:px-0 lg:py-24 ">
       <div class="flex flex-col lg:flex-row">
         <div class="order-last  h-full place-content-end self-center bg-white lg:order-first  lg:self-start lg:pl-12 lg:pt-12"></div>
         <div class="w-fit">
-          <h1 class=" mt-8 text-center font-mali text-3xl text-black lg:mx-72 lg:text-left ">
+          <h1 class=" mt-8 text-center font-mali text-3xl text-black lg:mx-40  ">
             {" "}
             Most loved{" "}
           </h1>
