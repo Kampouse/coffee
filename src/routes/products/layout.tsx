@@ -4,14 +4,14 @@ import { cold, food, hot, beans } from "./data";
 export default component$(() => {
   return (
     <>
-      <div class="flex flex-col bg-white  px-2 text-center md:flex-col lg:flex-row lg:px-0 lg:text-left ">
-        <div class="order-last mx-16 ml-2  gap-3 px-5  font-mali lg:order-first lg:flex  lg:flex-col lg:py-32">
+      <div class="flex flex-col bg-white  px-2 text-center  md:flex-row md:px-0 md:text-left  ">
+        <div class="order-last mx-0 ml-2 gap-3 px-5  font-mali md:order-first  md:my-20    md:flex md:flex-col  lg:my-0 lg:py-32">
           <Sections title="Hot Drinks" contents={hot} />
           <Sections title="Cold drinks" contents={cold} />
           <Sections title="Food" contents={food} />
           <Sections title="Beans" contents={beans} />
         </div>
-        <div class="mx-5">
+        <div class="mx-1">
           <Slot />
         </div>
       </div>

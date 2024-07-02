@@ -69,7 +69,7 @@ interface TablesProps {
 export const Tables = component$<TablesProps>(({ products }) => {
   return (
     <div>
-      <div class="  my-5   lg:grid lg:grid-cols-3 lg:gap-5">
+      <div class="  my-5   md:grid md:grid-cols-3 md:gap-3 lg:grid lg:grid-cols-3 lg:gap-5">
         {products.map((e) => (
           <ProductCard key={e.title} {...e} />
         ))}
@@ -84,11 +84,11 @@ interface SectionsProps {
 }
 export const Sections = component$<SectionsProps>(({ title, contents }) => {
   return (
-    <section class="flex flex-col gap-3  ">
+    <section class="flex flex-col gap-3">
       <details open={true} class=" flex flex-col">
         <summary
           style=" display: block; list-style: none;"
-          class="cursor-pointer bg-white text-3xl  font-bold text-black lg:text-left  lg:text-lg  "
+          class="cursor-pointer bg-white text-3xl  font-bold text-black md:text-left  md:text-lg  "
         >
           {" "}
           {title}{" "}
@@ -98,7 +98,7 @@ export const Sections = component$<SectionsProps>(({ title, contents }) => {
             <Link
               href={"/products/" + encodeURI(content)}
               key={content}
-              class=" lg:text-md bg-white px-14 text-xl font-light text-black decoration-wavy decoration-2 hover:underline lg:px-0  lg:text-left  "
+              class=" md:text-md bg-white px-14 text-xl font-light text-black decoration-wavy decoration-2 hover:underline md:px-0  md:text-left  "
             >
               {" "}
               {content}{" "}
@@ -155,7 +155,7 @@ export default component$(() => {
   ];
 
   return (
-    <main class="h-fit flex-col bg-white lg:flex    lg:px-0 lg:py-24 ">
+    <main class="h-fit flex-col bg-white md:flex    md:px-0 md:py-14 lg:py-24 ">
       <div class="flex flex-col lg:flex-row">
         <div class="order-last  h-full place-content-end self-center bg-white lg:order-first  lg:self-start lg:pl-12 lg:pt-12"></div>
         <div class="w-fit">
@@ -163,7 +163,7 @@ export default component$(() => {
             {" "}
             Most loved{" "}
           </h1>
-          <div class="px-16 lg:mb-16">
+          <div class="px-12 md:mb-16">
             <Tables products={products} />
             <Tables products={product2} />
           </div>

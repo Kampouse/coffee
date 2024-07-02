@@ -85,15 +85,15 @@ export const Featured = component$(() => {
           </h1>
         </div>
       </div>
-      <div class="flex flex-wrap lg:grid lg:grid-cols-5  ">
+      <div class="flex flex-col  md:grid md:grid-cols-3 lg:grid lg:grid-cols-5  ">
         {food.map((item) => {
           return (
-            <div
-              key={item.alt}
-              class="m-5 flex flex-col content-center justify-evenly text-center lg:px-0   "
-            >
-              <item.src class="rounded-lg" />
-              <h1 class=" text-center text-2xl text-black"> {item.alt}</h1>
+            <div key={item.alt} class="my-2 flex flex-col">
+              <item.src class="h-64 w-64 self-center rounded-lg" />
+              <h1 class=" self-center  py-4 text-2xl text-black">
+                {" "}
+                {item.alt}
+              </h1>
             </div>
           );
         })}
