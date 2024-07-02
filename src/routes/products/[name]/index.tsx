@@ -14,31 +14,38 @@ export default component$(() => {
   });
   return (
     <main class="mt-20 flex flex-col  md:my-24 lg:mt-32 lg:flex-row">
-      <div class="md:ml-16">
+      <div class="md:ml-16 lg:mx-32 ">
         <img
           src={prod.image}
-          class="h-[15em] max-h-[32em] w-full min-w-[20em]  self-start   rounded-xl md:h-[20em] md:w-[35em]  lg:max-h-[25em]"
+          class="h-[15em] max-h-[32em] w-full min-w-[20em]  self-start   rounded-xl md:h-[20em] lg:h-[30em] md:w-[32em] lg:w-[42em]  "
           width={500}
           height={500}
         />
       </div>
 
       <div class="flex h-full w-full flex-col gap-2 self-center text-center align-bottom text-red-800 lg:ml-0 lg:w-fit lg:py-16">
-        <div class="order-first gap-0">
-          <h1 class=" texte-center  py-2 text-4xl">{prod.name}</h1>
-          <h1 class="w-full p-2 pt-0 text-center ">{prod.price} $</h1>
+        <h1 class="      text-4xl ">{prod.name}
+          <span class="text-2xl text-gray-500">  {prod.price} $</span>
+        </h1>
+
+        <div class=" flex flex-col justify-center  md:grid md:grid-rows-2   ">
+
+          <h1 class=" flex justify-center w-96 self-center text-center ml-8 ">
+            {prod.description}
+          </h1>
+
+          <button
+            onClick$={() => addToCart()}
+            class="self-left self-center order-first w-32 rounded-lg bg-red-500 p-2 pb-2 mb-2 text-white md:mx-40 "
+          >
+            Add to cart
+
+
+          </button>
+
         </div>
 
-        <h1 class=" flex  items-end justify-end self-center p-2 text-left md:w-96 lg:w-full  lg:px-32 ">
-          {prod.description}
-        </h1>
-        <button
-          onClick$={() => addToCart()}
-          class="self-left order-first rounded-lg bg-red-500 p-2 text-white md:mx-40 lg:order-last  lg:self-center"
-        >
-          Add to cart
-        </button>
-      </div>
+      </div >
     </main>
   );
 });
