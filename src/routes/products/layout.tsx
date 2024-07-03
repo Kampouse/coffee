@@ -1,6 +1,7 @@
 import { component$, Slot } from "@builder.io/qwik";
 import { Sections } from ".";
 import { cold, food, hot, beans } from "./data";
+
 export default component$(() => {
   return (
     <>

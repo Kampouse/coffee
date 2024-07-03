@@ -1,4 +1,3 @@
-
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
@@ -67,7 +66,7 @@ export const Featured = component$(() => {
   return (
     <section
       id="about"
-      class="flex h-fit flex-col   bg-white bg-cover bg-center  bg-no-repeat  p-5 md:px-12 font-mali lg:px-20"
+      class="flex h-fit flex-col   bg-white bg-cover bg-center  bg-no-repeat  p-5 font-mali md:px-12 lg:px-20"
     >
       <div class="grid w-full grid-cols-2 py-10 ">
         <div class="flex w-full  flex-col">
@@ -229,14 +228,14 @@ const Location = component$(() => {
 
 const Comment = component$(() => {
   return (
-    <div class="flex h-fit flex-col items-center  justify-center gap-2 self-center bg-secondary  bg-no-repeat md:p-5  text-center   lg:h-fit">
+    <div class="flex h-fit flex-col items-center  justify-center gap-2 self-center bg-secondary  bg-no-repeat text-center  md:p-5   lg:h-fit">
       <div class="grid    lg:grid-cols-2 lg:gap-24  lg:px-52 ">
         <div class="w-full lg:self-end">
           <h1 class=" pt-8 text-center   font-mali text-2xl text-white">
             {" "}
             From Beans to Bliss: Why I Love Coffee Now
           </h1>
-          <div class="flex flex-col  self-center md:p-8 pb-4 lg:flex-row">
+          <div class="flex flex-col  self-center pb-4 md:p-8 lg:flex-row">
             <Lucid.QuoteIcon color="#BFDFB7" class="  h-8 w-16   text-white" />
             <h2 class="flex w-96 flex-col gap-5 text-center text-xl lg:flex-row">
               Every cup at Coffee Now is a masterpiece in itself, crafted with
@@ -297,9 +296,6 @@ export const Footer = component$(() => {
 export default component$(() => {
   return (
     <main class="scroll-smooth bg-[#cbe7c3]">
-
-
-
       <Land />
 
       <Featured />
@@ -307,9 +303,6 @@ export default component$(() => {
       <Custom />
       <Comment />
       <Location />
-
-
-
     </main>
   );
 });
