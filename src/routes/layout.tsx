@@ -17,7 +17,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export const CartContext = createContextId<Signal<string[]>>("user.cart");
 export default component$(() => {
-  const cart = useSignal<Array<String>>(["coffee"]);
+  const cart = useSignal<Array<String>>([]);
   useContextProvider(CartContext, cart);
   return (
     <>

@@ -33,11 +33,15 @@ export default component$(() => {
         </div>
       </div>
       <div class="flex content-center items-center justify-end gap-5  px-5 md:flex lg:flex">
-        <button class=" content-nd flex cursor-pointer flex-row gap-2 rounded-lg   border border-secondary p-3 transition ease-linear   hover:bg-scondary_hover ">
+        <Link
+          text="cart"
+          href="/cart"
+          class=" content-nd flex cursor-pointer flex-row gap-2 rounded-lg   border border-secondary p-3 transition ease-linear   hover:bg-scondary_hover "
+        >
           {" "}
           <lucid.ShoppingCartIcon />
           <h1 class="flex"> {cart.value.length}</h1>{" "}
-        </button>
+        </Link>
       </div>
     </header>
   );
