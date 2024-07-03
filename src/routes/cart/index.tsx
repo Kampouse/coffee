@@ -6,7 +6,7 @@ export default component$(() => {
         <h1 class=" text-center text-2xl text-black">You Cart</h1>
       </div>
       <div class=" mx-16  w-[20em] rounded  border-2 border-secondary py-4 text-2xl ">
-        <h1 class=" text-center text-2xl text-black"> buy a shit post </h1>
+        <h1 class=" text-center text-2xl text-black"> buy a something </h1>
       </div>
     </main>
   );
