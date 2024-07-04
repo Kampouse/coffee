@@ -26,9 +26,6 @@ const CartItem = component$<CartItemProps>((props) => {
     });
   });
 
-
-
-
   return (
     <div class="grid grid-cols-[80px_1fr_80px] items-center gap-4">
       <img
@@ -43,20 +40,28 @@ const CartItem = component$<CartItemProps>((props) => {
         <h3 class="font-semibold">{props.name}</h3>
         <div class=" text-right">
           <div class="flex flex-row justify-end gap-2">
-            <button onClick$={addItem} class="rounded-lg border border-gray-400 p-1 text-gray-800">
+            <button
+              onClick$={addItem}
+              class="rounded-lg border border-gray-400 p-1 text-gray-800"
+            >
               {" "}
               <Lucid.PlusIcon />
-            </button >
+            </button>
             <h1 class="p-1">{props.quantity}</h1>
-            <button onClick$={removeItem} class="rounded-lg border border-gray-400 p-1 text-gray-800">
+            <button
+              onClick$={removeItem}
+              class="rounded-lg border border-gray-400 p-1 text-gray-800"
+            >
               {" "}
               <Lucid.MinusIcon />
-            </button >
-            <button onClick$={deleteItem} class="rounded-lg border border-gray-400 p-1 text-red-500">
+            </button>
+            <button
+              onClick$={deleteItem}
+              class="rounded-lg border border-gray-400 p-1 text-red-500"
+            >
               {" "}
               <Lucid.TrashIcon />
-            </button >
-
+            </button>
           </div>
         </div>
         <p class="text-muted-foreground">

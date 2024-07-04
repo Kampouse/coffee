@@ -3,7 +3,7 @@ import { useLocation } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { CartContext } from "../../layout";
 import { getProduct } from "../data";
-import * as Lucid from "lucide-qwik"
+import * as Lucid from "lucide-qwik";
 export default component$(() => {
   const cart = useContext(CartContext);
   const location = useLocation();
@@ -13,13 +13,15 @@ export default component$(() => {
     return item ? item.quantity : 0;
   };
 
-  const cartItem = useStore({ ...getProduct(location.params.name), quantity: getCartQuantity(location.params.name) });
+  const cartItem = useStore({
+    ...getProduct(location.params.name),
+    quantity: getCartQuantity(location.params.name),
+  });
   //assing to prod if undefined
   const updateCart = $(() => {
     //required to get th bundle to pick up the fn on the client?
 
-    if (cartItem.quantity === 0)
-      cartItem.quantity = cartItem.quantity + 1 || 1;
+    if (cartItem.quantity === 0) cartItem.quantity = cartItem.quantity + 1 || 1;
     const clientProd = getProduct(location.params.name);
     const index = cart.data.findIndex((item) => item.name === clientProd.name);
     if (index !== -1) {
@@ -45,51 +47,38 @@ export default component$(() => {
           <span class="text-2xl text-gray-500"> {prod.price} $</span>
         </h1>
 
-
-
-
-
         <div class=" flex flex-col   ">
-
           <button
             onClick$={() => updateCart()}
             class="self-left order-first mb-2 w-32 self-center rounded-lg bg-red-500 p-2 pb-2 text-white md:mx-40 "
           >
             Add to cart
-
           </button>
-          <div class="flex flex-row  justify-center lg:gap-2 self-center">
+          <div class="flex flex-row  justify-center self-center lg:gap-2">
             <button
-              class="  border border-red-500  rounded-lg"
+              class="  rounded-lg border  border-red-500"
               onClick$={() => {
-                if (cartItem.quantity > 0)
-                  cartItem.quantity -= 1;
+                if (cartItem.quantity > 0) cartItem.quantity -= 1;
               }}
             >
               <Lucid.MinusIcon class=" text-red-500" />
             </button>
 
-            <span class=" px-2   rounded-lg"> {cartItem.quantity}</span>
+            <span class=" rounded-lg   px-2"> {cartItem.quantity}</span>
             <button
-              class=" border-red-500 border rounded-lg"
+              class=" rounded-lg border border-red-500"
               onClick$={() => {
                 cartItem.quantity += 1;
               }}
             >
               <Lucid.PlusIcon class=" text-red-500" />
             </button>
-
           </div>
-
-
-
-
         </div>
 
         <h1 class=" ml-8 flex w-96 justify-center self-center text-center ">
           {prod.description}
         </h1>
-
       </div>
     </main>
   );
