@@ -3,14 +3,10 @@ import { Sections } from ".";
 import { cold, food, hot, beans } from "./data";
 
 export default component$(() => {
-  const hotstring = hot.map((item) => item.name)
-  const coldstring = cold.map((item) => item.name)
-  const foodstring = food.map((item) => item.name)
-  const beansstring = beans.map((item) => item.name)
-
-
-
-
+  const hotstring = hot.map((item) => item.name);
+  const coldstring = cold.map((item) => item.name);
+  const foodstring = food.map((item) => item.name);
+  const beansstring = beans.map((item) => item.name);
 
   return (
     <>

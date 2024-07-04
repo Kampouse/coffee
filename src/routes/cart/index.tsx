@@ -1,11 +1,34 @@
-import { component$, useContext } from "@builder.io/qwik";
+import { component$, useContext, $ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import * as Lucid from "lucide-qwik";
 import { CartContext } from "../layout";
-import { useContextProvider, useSignal } from "@builder.io/qwik";
 import type { CartItemProps } from "../layout";
 
 const CartItem = component$<CartItemProps>((props) => {
+  const cart = useContext(CartContext);
+  const deleteItem = $(() => {
+    cart.data = cart.data.filter((item) => item.name !== props.name);
+  });
+  const addItem = $(() => {
+    cart.data = cart.data.map((item) => {
+      if (item.name === props.name) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+  });
+  const removeItem = $(() => {
+    cart.data = cart.data.map((item) => {
+      if (item.name === props.name && item.quantity > 0) {
+        return { ...item, quantity: item.quantity - 1 };
+      }
+      return item;
+    });
+  });
+
+
+
+
   return (
     <div class="grid grid-cols-[80px_1fr_80px] items-center gap-4">
       <img
@@ -20,41 +43,34 @@ const CartItem = component$<CartItemProps>((props) => {
         <h3 class="font-semibold">{props.name}</h3>
         <div class=" text-right">
           <div class="flex flex-row justify-end gap-2">
-            <button class="rounded-lg border border-gray-400 p-1 text-gray-800">
+            <button onClick$={addItem} class="rounded-lg border border-gray-400 p-1 text-gray-800">
               {" "}
               <Lucid.PlusIcon />
-            </button>
+            </button >
             <h1 class="p-1">{props.quantity}</h1>
-            <button class="rounded-lg border border-gray-400 p-1 text-gray-800">
+            <button onClick$={removeItem} class="rounded-lg border border-gray-400 p-1 text-gray-800">
               {" "}
               <Lucid.MinusIcon />
-            </button>
-            <button class="rounded-lg border border-gray-400 p-1 text-red-500">
+            </button >
+            <button onClick$={deleteItem} class="rounded-lg border border-gray-400 p-1 text-red-500">
               {" "}
               <Lucid.TrashIcon />
-            </button>
+            </button >
+
           </div>
         </div>
         <p class="text-muted-foreground">
           {props.price} x {props.quantity}
         </p>
       </div>
-      <div class="text-right font-semibold">{props.price * props.quantity}$</div>
+      <div class="text-right font-semibold">
+        {props.price * props.quantity}$
+      </div>
     </div>
   );
 });
 export default component$(() => {
   const cart = useContext(CartContext);
-
-
-
-
-
-
-
-
-
-
 
   return (
     <div class="h-screen lg:mt-32 ">
@@ -62,16 +78,9 @@ export default component$(() => {
         <h1 class="mb-6 py-2 text-2xl font-bold">Your Cart</h1>
         <div class={"min-h-[12em]"}>
           <div class="grid gap-6 ">
-            {
-              cart.data.map((item) => {
-                if (item) {
-                  return <CartItem key={item.name} {...item} />;
-                }
-              })
-
-
-            }
-
+            {cart.data.map((item) => {
+              return <CartItem key={item.name} {...item} />;
+            })}
           </div>
         </div>
         <div
