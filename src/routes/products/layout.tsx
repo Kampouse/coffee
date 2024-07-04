@@ -7,7 +7,6 @@ export default component$(() => {
   const coldstring = cold.map((item) => item.name);
   const foodstring = food.map((item) => item.name);
   const beansstring = beans.map((item) => item.name);
-
   return (
     <>
       <div class="flex flex-col bg-white  px-2 text-center  md:flex-row md:px-0 md:text-left  ">

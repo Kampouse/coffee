@@ -2,13 +2,19 @@ import { component$ } from "@builder.io/qwik";
 
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link, useNavigate } from "@builder.io/qwik-city";
-
-interface ProductProps {
-  title: string;
-  subtitle: string;
-  price: string;
-  image: string | undefined;
+import { hot, cold, food, beans } from "./data";
+export interface ProductProps {
+  name: string;
+  description: string;
+  longDescription: string | undefined;
+  price: number;
+  image: string;
 }
+const content = [hot, beans, food, cold].flat();
+//shuffle the content array
+
+//take 9 random products from the content array
+const Producto = content.slice(0, 9);
 export const head: DocumentHead = {
   title: "Coffee Now - Products",
   meta: [
@@ -23,15 +29,15 @@ export const head: DocumentHead = {
 
 export const ProductCard = component$<ProductProps>(
   ({
-    title = "title",
-    subtitle = "subtitle",
+    name = "title",
+    description = "subtitle",
     price = "hello",
     image = "https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max",
   }) => {
     const navigate = useNavigate();
     return (
       <div class="w-full">
-        <div onClick$={() => navigate("/products/" + title)} class="">
+        <div onClick$={() => navigate("/products/" + name)} class="">
           <img
             width={500}
             height={500}
@@ -41,15 +47,16 @@ export const ProductCard = component$<ProductProps>(
           <div class="p-2 text-black   ">
             <div class="flex justify-between ">
               <Link
-                href={"/products/" + title}
+                href={"/products/" + name}
                 class=" cursor-pointer font-mali text-2xl font-medium leading-6 "
+                reload={false}
               >
                 {" "}
-                {title}{" "}
+                {name}{" "}
               </Link>
               <h1 class="self-end pr-5 text-end  text-secondary"> {price} </h1>
             </div>
-            <h2 class="text-left">{subtitle}</h2>
+            <h2 class="text-left">{description.slice(0, 50)}</h2>
           </div>
         </div>
       </div>
@@ -58,12 +65,7 @@ export const ProductCard = component$<ProductProps>(
 );
 
 interface TablesProps {
-  products: {
-    title: string;
-    subtitle: string;
-    price: string;
-    image: string | undefined;
-  }[];
+  products: ProductProps[];
 }
 
 export const Tables = component$<TablesProps>(({ products }) => {
@@ -71,7 +73,7 @@ export const Tables = component$<TablesProps>(({ products }) => {
     <div>
       <div class="  my-5   md:grid md:grid-cols-3 md:gap-3 lg:grid lg:grid-cols-3 lg:gap-5">
         {products.map((e) => (
-          <ProductCard key={e.title} {...e} />
+          <ProductCard key={e.name} {...e} />
         ))}
       </div>
     </div>
@@ -99,6 +101,7 @@ export const Sections = component$<SectionsProps>(({ title, contents }) => {
               href={"/products/" + encodeURI(content)}
               key={content}
               class=" md:text-md bg-white px-14 text-xl font-light text-black decoration-wavy decoration-2 hover:underline md:px-0  md:text-left  "
+              reload={false}
             >
               {" "}
               {content}{" "}
@@ -111,49 +114,6 @@ export const Sections = component$<SectionsProps>(({ title, contents }) => {
 });
 
 export default component$(() => {
-  const img = undefined;
-  const products = [
-    {
-      title: "Dark Coffee",
-      subtitle: "chocolate",
-      price: "4.5$",
-      image: img,
-    },
-    {
-      title: "hoodie",
-      subtitle: "freshly made ",
-      price: "45$",
-      image: img,
-    },
-    {
-      title: "coffee beans",
-      subtitle: "100 grams packing",
-      price: "15$",
-      image: img,
-    },
-  ];
-
-  const product2 = [
-    {
-      title: "Light Coffee",
-      subtitle: "buttery",
-      price: "6.5$",
-      image: img,
-    },
-    {
-      title: "Matcha",
-      subtitle: "the best",
-      price: "7.5$",
-      image: img,
-    },
-    {
-      title: "coffee plant",
-      subtitle: "small plant",
-      price: "15$",
-      image: img,
-    },
-  ];
-
   return (
     <main class="h-fit flex-col bg-white md:flex    md:px-0 md:py-14 lg:py-24 ">
       <div class="flex flex-col lg:flex-row">
@@ -164,8 +124,9 @@ export default component$(() => {
             Most loved{" "}
           </h1>
           <div class="px-12 md:mb-16">
-            <Tables products={products} />
-            <Tables products={product2} />
+            <Tables products={Producto.slice(0, 3)} />
+            <Tables products={Producto.slice(4, 9)} />
+            <Tables products={Producto.slice(10, 12)} />
           </div>
         </div>
       </div>

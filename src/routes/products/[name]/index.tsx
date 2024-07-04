@@ -1,22 +1,38 @@
-import { component$, useContext, $, useStore } from "@builder.io/qwik";
+import {
+  component$,
+  useContext,
+  $,
+  useStore,
+  useTask$,
+} from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { CartContext } from "../../layout";
 import { getProduct } from "../data";
 import * as Lucid from "lucide-qwik";
+import type { CartItemProps } from "../../layout";
 export default component$(() => {
   const cart = useContext(CartContext);
   const location = useLocation();
   const prod = getProduct(location.params.name);
-  const getCartQuantity = (name: string) => {
-    const item = cart.data.find((item) => item.name === name);
-    return item ? item.quantity : 0;
-  };
 
-  const cartItem = useStore({
-    ...getProduct(location.params.name),
-    quantity: getCartQuantity(location.params.name),
+  const cartItem = useStore<CartItemProps>({
+    name: getProduct(location.params.name).name,
+    price: 0,
+    image: "",
+    quantity: 0,
   });
+
+  useTask$((taskContext) => {
+    taskContext.track(() => location.params.name);
+    const loc = location.params.name;
+
+    const prod = getProduct(loc);
+
+    cartItem.quantity =
+      cart.data.find((item) => item.name === prod.name)?.quantity || 0;
+  });
+
   //assing to prod if undefined
   const updateCart = $(() => {
     //required to get th bundle to pick up the fn on the client?
@@ -29,6 +45,7 @@ export default component$(() => {
     } else {
       cart.data.push({ ...clientProd, quantity: cartItem.quantity });
     }
+    //set clientProd to be empty to trigger a rerender
   });
   return (
     <main class="mt-20 flex flex-col  md:my-24 lg:mt-32 lg:flex-row">
@@ -77,7 +94,7 @@ export default component$(() => {
         </div>
 
         <h1 class=" ml-8 flex w-96 justify-center self-center text-center ">
-          {prod.description}
+          {prod.longDescription}
         </h1>
       </div>
     </main>
