@@ -8,9 +8,16 @@ export default component$(() => {
   const location = useLocation();
 
   const prod = getHotContent(location.params.name);
-  const addToCart = $(() => {
-    cart.value = [...cart.value, location.params.name];
-    console.log(cart.value);
+  const updateCart = $(() => {
+    const out = cart.data.find((item, index) => {
+      if (item.name === prod.name) {
+        cart.data[index].quantity = item.quantity + 1;
+        return item
+      }
+    });
+    if (!out) {
+      cart.data.push({ ...prod, quantity: 1 });
+    }
   });
   return (
     <main class="mt-20 flex flex-col  md:my-24 lg:mt-32 lg:flex-row">
@@ -35,7 +42,7 @@ export default component$(() => {
           </h1>
 
           <button
-            onClick$={() => addToCart()}
+            onClick$={() => updateCart()}
             class="self-left order-first mb-2 w-32 self-center rounded-lg bg-red-500 p-2 pb-2 text-white md:mx-40 "
           >
             Add to cart

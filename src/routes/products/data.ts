@@ -16,15 +16,16 @@ export const stuff = {
     "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
 };
 
-type Drink = {
+type Product = {
   name: string;
   price: number;
-  description?: string;
-  image?: string;
+  description: string;
+  image: string;
+  quantity: number;
 };
 
 //object key value
-type DrinkMenu = { [key: string]: Drink };
+type DrinkMenu = { [key: string]: Product };
 
 const hotContent: DrinkMenu = {
   "Iced Coffee": {
@@ -34,6 +35,7 @@ const hotContent: DrinkMenu = {
       "Iced Coffee is a cold coffee brewed with hot water and served over ice. It may or may not be sweetened.",
     image:
       "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/iced-coffee-1594158455.jpg?resize=640:*",
+    quantity: 0,
   },
   "Iced Latte": {
     name: "Iced Latte",
@@ -42,6 +44,7 @@ const hotContent: DrinkMenu = {
     price: 4.0,
     description:
       "Iced Latte is a cold espresso-based drink with milk and sugar, served over ice.",
+    quantity: 0,
   },
 };
 export const getHotContent = (name: string) => hotContent[name] ?? stuff;

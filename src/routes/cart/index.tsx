@@ -3,13 +3,7 @@ import { Link } from "@builder.io/qwik-city";
 import * as Lucid from "lucide-qwik";
 import { CartContext } from "../layout";
 import { useContextProvider, useSignal } from "@builder.io/qwik";
-type CartItemProps = {
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-};
-
+import type { CartItemProps } from "../layout";
 
 const CartItem = component$<CartItemProps>((props) => {
   return (

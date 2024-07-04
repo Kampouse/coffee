@@ -1,4 +1,4 @@
-import { component$, Slot, useSignal, type Signal } from "@builder.io/qwik";
+import { component$, Slot, useStore, useSignal, type Signal } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
@@ -15,9 +15,24 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
-export const CartContext = createContextId<Signal<string[]>>("user.cart");
+export type CartItemProps = {
+
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+};
+interface CartProps {
+  data: CartItemProps[];
+}
+
+export const CartContext = createContextId<CartProps>("user.cart");
 export default component$(() => {
-  const cart = useSignal<Array<String>>([]);
+
+
+  const cart = useStore<CartProps>({
+    data: []
+  })
   useContextProvider(CartContext, cart);
   return (
     <>

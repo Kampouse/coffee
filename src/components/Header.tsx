@@ -40,7 +40,7 @@ export default component$(() => {
         >
           {" "}
           <lucid.ShoppingCartIcon />
-          <h1 class="flex"> {cart.value.length}</h1>{" "}
+          <h1 class="flex"> {cart.data.length}</h1>{" "}
         </Link>
       </div>
     </header>
