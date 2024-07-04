@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import * as Lucid from "lucide-qwik";
 import { CartContext } from "../layout";
@@ -39,34 +39,40 @@ const CartItem = component$<CartItemProps>((props) => {
           {props.price} x {props.quantity}
         </p>
       </div>
-      <div class="text-right font-semibold">{props.price * props.quantity}</div>
+      <div class="text-right font-semibold">{props.price * props.quantity}$</div>
     </div>
   );
 });
 export default component$(() => {
+  const cart = useContext(CartContext);
 
-  const cart = useSignal<Array<String>>([]);
-  useContextProvider(CartContext, cart);
 
-  const dumbList = [
-    { name: "Product 1", price: 12.99, quantity: 2, image: "https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max" },
-    { name: "Product 1", price: 12.99, quantity: 2, image: "https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max" },
-  ]
+
+
+
+
+
+
+
+
 
   return (
     <div class="h-screen lg:mt-32 ">
       <div class=" mx-auto my-4 h-fit w-full max-w-4xl rounded-xl  border bg-white px-4  py-12 text-black md:px-6">
         <h1 class="mb-6 py-2 text-2xl font-bold">Your Cart</h1>
-        <div class={dumbList.length > 0 ? "min-h-[12em]" : "h-fit"}>
+        <div class={"min-h-[12em]"}>
           <div class="grid gap-6 ">
             {
-              dumbList.slice(0).map((item => {
-                return <CartItem key={item.name} {...item} />
-              }))
+              cart.data.map((item) => {
+                if (item) {
+                  return <CartItem key={item.name} {...item} />;
+                }
+              })
+
+
             }
 
           </div>
-
         </div>
         <div
           data-orientation="horizontal"
@@ -74,7 +80,6 @@ export default component$(() => {
           class="bg-border my-6 h-[1px] w-full shrink-0"
         ></div>
         <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-
           <div class="text-2xl font-bold">Total: $123.94</div>
 
           <div class="flex gap-2">

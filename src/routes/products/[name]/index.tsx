@@ -2,23 +2,24 @@ import { component$, useContext, $ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { CartContext } from "../../layout";
-import { getHotContent } from "../data";
+import { getProduct } from "../data";
 export default component$(() => {
   const cart = useContext(CartContext);
   const location = useLocation();
 
-  const prod = getHotContent(location.params.name);
+
+  const prod = getProduct(location.params.name);
+  //assing to prod if undefined
   const updateCart = $(() => {
-    const out = cart.data.find((item, index) => {
-      if (item.name === prod.name) {
-        cart.data[index].quantity = item.quantity + 1;
-        return item
-      }
-    });
-    if (!out) {
-      cart.data.push({ ...prod, quantity: 1 });
+    //required to get th bundle to pick up the fn on the client?
+    const clientProd = getProduct(location.params.name);
+    const index = cart.data.findIndex((item) => item.name === clientProd.name);
+    if (index !== -1) {
+      cart.data[index].quantity += 1;
+    } else {
+      cart.data.push({ ...clientProd, quantity: 1 });
     }
-  });
+  })
   return (
     <main class="mt-20 flex flex-col  md:my-24 lg:mt-32 lg:flex-row">
       <div class="md:ml-16 lg:mx-32 ">
