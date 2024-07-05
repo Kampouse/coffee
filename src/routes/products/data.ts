@@ -55,7 +55,9 @@ export const cold: ProductProps[] = [
     description: "Chilled coffee over ice.",
     longDescription:
       "Iced coffee is a cold coffee drink made by pouring brewed coffee over ice. It is typically served sweetened and with milk or cream. Iced coffee is a refreshing and invigorating drink, perfect for hot summer days.",
-    image: "",
+    image: "https://cdn.pixabay.com/photo/2019/11/23/20/04/coffee-4648041_1280.jpg",
+
+
   },
   {
     name: "Iced Latte",
