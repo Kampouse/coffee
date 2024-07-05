@@ -1,12 +1,9 @@
-import { component$, Slot, useSignal, type Signal } from "@builder.io/qwik";
+import { component$, Slot, useStore } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Header from "~/components/Header";
-import { Footed } from ".";
+import Footer from "~/components/Footer";
 
-import {
-  useContextProvider,
-  createContextId,
-} from "@builder.io/qwik"
+import { useContextProvider, createContextId } from "@builder.io/qwik";
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
   // https://qwik.dev/docs/caching/
@@ -18,16 +15,28 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
-export const CartContext = createContextId<Signal<string[]>>("user.cart")
+export type CartItemProps = {
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+};
+interface CartProps {
+  data: CartItemProps[];
+}
+
+export const CartContext = createContextId<CartProps>("user.cart");
 export default component$(() => {
-  const cart = useSignal<Array<String>>(["coffee"])
-  useContextProvider(CartContext, cart)
+  const cart = useStore<CartProps>({
+    data: [],
+  });
+  useContextProvider(CartContext, cart);
   return (
     <>
       <Header />
-      <div class=" bg-[#cbe7c3] pt-10">
+      <div class=" bg-secondary pt-10">
         <Slot />
-        <Footed />
+        <Footer />
       </div>
     </>
   );

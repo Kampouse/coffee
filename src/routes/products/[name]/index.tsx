@@ -1,53 +1,113 @@
-import { component$, useContext, $ } from "@builder.io/qwik";
+import {
+  component$,
+  useContext,
+  $,
+  useStore,
+  useTask$,
+} from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { CartContext } from "../../layout";
+import { getProduct } from "../data";
+import * as Lucid from "lucide-qwik";
+import type { CartItemProps } from "../../layout";
 export default component$(() => {
-  const cart = useContext(CartContext)
+  const cart = useContext(CartContext);
   const location = useLocation();
-  const addToCart = $(() => {
-    cart.value = [...cart.value, location.params.name]
-    console.log(cart.value)
-  })
+  const prod = getProduct(location.params.name);
+
+  const cartItem = useStore<CartItemProps>({
+    name: getProduct(location.params.name).name,
+    price: 0,
+    image: "",
+    quantity: 0,
+  });
+
+  useTask$((taskContext) => {
+    taskContext.track(() => location.params.name);
+    const loc = location.params.name;
+
+    const prod = getProduct(loc);
+
+    cartItem.quantity =
+      cart.data.find((item) => item.name === prod.name)?.quantity || 0;
+  });
+
+  //assing to prod if undefined
+  const updateCart = $(() => {
+    //required to get th bundle to pick up the fn on the client?
+
+    if (cartItem.quantity === 0) cartItem.quantity = cartItem.quantity + 1 || 1;
+    const clientProd = getProduct(location.params.name);
+    const index = cart.data.findIndex((item) => item.name === clientProd.name);
+    if (index !== -1) {
+      cart.data[index].quantity = cartItem.quantity;
+    } else {
+      cart.data.push({ ...clientProd, quantity: cartItem.quantity });
+    }
+    //set clientProd to be empty to trigger a rerender
+  });
   return (
-    <main class="grid  h-screen grid-flow-row  bg-white p-10  md:grid-flow-row lg:h-[80.6vh]  lg:grid-cols-2 lg:p-20">
-      <div class="h-[40vh]  justify-center  rounded-xl bg-gray-100 text-center  text-red-800 lg:h-full">
-        <h1 class="  mt-4 text-4xl">{location.params.name}</h1>
+    <main class="mt-20 flex flex-col  md:my-24 lg:mt-32 lg:flex-row">
+      <div class="md:ml-16 lg:mx-32 ">
+        <img
+          src={prod.image}
+          class="h-[15em] max-h-[32em] w-full min-w-[20em]  self-start   rounded-xl md:h-[20em] md:w-[32em] lg:h-[30em] lg:w-[42em]  "
+          width={500}
+          height={500}
+        />
       </div>
-      <div class=" flex h-fit w-full flex-col gap-2 self-center text-center align-bottom text-red-800 lg:mx-20  lg:w-fit">
-        <div class="gap-0">
-          <h1 class="text-left  text-4xl">Lorem ipsum dolor sit amet</h1>
-          <h1 class="w-full p-2 pt-0 text-left">15 CAD </h1>
+
+      <div class="flex h-full w-full flex-col gap-2 self-center text-center align-bottom text-red-800 lg:ml-0 lg:w-fit lg:py-16">
+        <h1 class="text-4xl text-red-700 pt-1 md:pt-2 lg:pt-0">
+          {prod.name}
+          <span class="text-3xl text-red-800"> {prod.price} $</span>
+        </h1>
+
+        <div class=" flex flex-col   ">
+          <button
+            onClick$={() => updateCart()}
+            class="self-left order-first mb-2 w-32 self-center rounded-lg bg-red-500 p-2 pb-2 text-white md:mx-40 "
+          >
+            Add to cart
+          </button>
+          <div class="flex flex-row  justify-center self-center lg:gap-2">
+            <button
+              class="  rounded-lg border  border-red-500"
+              onClick$={() => {
+                if (cartItem.quantity > 0) cartItem.quantity -= 1;
+              }}
+            >
+              <Lucid.MinusIcon class=" text-red-500" />
+            </button>
+
+            <span class=" rounded-lg   px-2"> {cartItem.quantity}</span>
+            <button
+              class=" rounded-lg border border-red-500"
+              onClick$={() => {
+                cartItem.quantity += 1;
+              }}
+            >
+              <Lucid.PlusIcon class=" text-red-500" />
+            </button>
+          </div>
         </div>
 
-        <h1 class=" flex  items-end justify-end self-center p-2  lg:w-full ">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut
+        <h1 class=" md:ml-8 flex w-96 justify-center self-center text-center ">
+          {prod.longDescription}
         </h1>
-        <button onClick$={() => addToCart()} class="self-center rounded-lg bg-red-500 p-2  text-white">
-          Add to cart
-        </button>
-
       </div>
     </main>
   );
 });
 
 export const head: DocumentHead = {
-  title: "best coffee you can buy",
+  title: "Coffee now",
   meta: [
     {
       name: "description",
-      content: "smooth coffee is good",
+      content: "Coffee now",
+
       media:
         "https://images.nightcafe.studio/jobs/Vkp6pDElnf3hXn1ncRRt/Vkp6pDElnf3hXn1ncRRt--1--387d3_5.9524x-real-esrgan-x4-plus.jpg?tr=w-1600,c-at_max",
     },
