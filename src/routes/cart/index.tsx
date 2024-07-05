@@ -27,26 +27,19 @@ const CartItem = component$<CartItemProps>((props) => {
   });
 
   return (
-    <div class="grid grid-cols-[80px_1fr_80px] items-center gap-4">
+    <div class="grid grid-cols-[80px_1fr_80px] items-center   gap-1 rounded-md border bg-[#fafafa] p-2">
       <img
         src={props.image}
         alt={props.name}
         width="80"
         height="80"
-        class="rounded-md object-cover"
+        class=" rounded-lg border object-cover"
         style="aspect-ratio: 80 / 80; object-fit: cover;"
       />
-      <div class="grid gap-1">
+      <div class="grid gap-1 px-2 ">
         <h3 class="font-semibold">{props.name}</h3>
         <div class=" text-right">
           <div class="flex flex-row justify-end gap-2">
-            <button
-              onClick$={addItem}
-              class="rounded-lg border border-gray-400 p-1 text-gray-800"
-            >
-              {" "}
-              <Lucid.PlusIcon />
-            </button>
             <h1 class="p-1">{props.quantity}</h1>
             <button
               onClick$={removeItem}
@@ -55,6 +48,14 @@ const CartItem = component$<CartItemProps>((props) => {
               {" "}
               <Lucid.MinusIcon />
             </button>
+            <button
+              onClick$={addItem}
+              class="rounded-lg border border-gray-400 p-1 text-gray-800"
+            >
+              {" "}
+              <Lucid.PlusIcon />
+            </button>
+
             <button
               onClick$={deleteItem}
               class="rounded-lg border border-gray-400 p-1 text-red-500"
@@ -65,7 +66,7 @@ const CartItem = component$<CartItemProps>((props) => {
           </div>
         </div>
         <p class="text-muted-foreground">
-          {props.price} x {props.quantity}
+          {props.price}$ x {props.quantity}
         </p>
       </div>
       <div class="text-right font-semibold">
@@ -78,8 +79,8 @@ export default component$(() => {
   const cart = useContext(CartContext);
 
   return (
-    <div class="h-screen lg:mt-32 ">
-      <div class=" mx-auto my-4 h-fit w-full max-w-4xl rounded-xl  border bg-white px-4  py-12 text-black md:px-6">
+    <div class="my-32 h-full md:my-24 lg:my-32 lg:mb-[12.3rem]  ">
+      <div class=" mx-auto my-4 h-fit w-full max-w-4xl rounded-xl  border bg-white px-4  py-8 text-black md:px-6">
         <h1 class="mb-6 py-2 text-2xl font-bold">Your Cart</h1>
         <div class={"min-h-[12em]"}>
           <div class="grid gap-6 ">

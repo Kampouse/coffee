@@ -42,10 +42,10 @@ export const ProductCard = component$<ProductProps>(
             width={500}
             height={500}
             src={image}
-            class=" h-full w-full max-w-[350px]  cursor-pointer"
+            class="   h-[200px] w-[600px] cursor-pointer  rounded-lg border   lg:h-[350px]"
           />
           <div class="p-2 text-black   ">
-            <div class="flex justify-between ">
+            <div class="flex gap-2  ">
               <Link
                 href={"/products/" + name}
                 class=" cursor-pointer font-mali text-2xl font-medium leading-6 "
@@ -54,7 +54,7 @@ export const ProductCard = component$<ProductProps>(
                 {" "}
                 {name}{" "}
               </Link>
-              <h1 class="self-end pr-5 text-end  text-secondary"> {price} </h1>
+              <h1 class="pt-1 text-red-800"> {price}$</h1>
             </div>
             <h2 class="text-left">{description.slice(0, 50)}</h2>
           </div>
