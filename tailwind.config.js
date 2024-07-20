@@ -31,8 +31,8 @@ export default {
         white: "#FFFFFF", // White
       },
       backgroundImage: {
-        main: "url('/primaryImage.jpg')",
-        second: " url('/coffee.jpg')",
+        main: "url('https://s6.imgcdn.dev/Llo6e.jpg')",
+        second: " url('https://s6.imgcdn.dev/Ll8bC.md.jpg')",
       },
       borderColor: {
         primary: "#000000", // Primary Color

@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { InstagramIcon, FacebookIcon } from "lucide-qwik";
+import { InstagramIcon, FacebookIcon, LinkedinIcon } from "lucide-qwik";
 import { Link } from "@builder.io/qwik-city";
 import Logo from "../assets/img/CoffeIcon.svg?jsx";
 export default component$(() => {
@@ -38,6 +38,9 @@ export default component$(() => {
             <InstagramIcon class="m-2 h-6 w-6 self-center" />
 
             <FacebookIcon class="m-2 h-6 w-6 self-center" />
+            <a href="https://linkedin.com/in/jemartel">
+              <LinkedinIcon class="m-2 h-6 w-6 self-center" />
+            </a>
           </div>
         </div>
       </div>
