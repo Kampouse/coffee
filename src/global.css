@@ -27,8 +27,9 @@
 }
 
 :root {
-  background-color: #cbe7c3;
+  background-color: black;
   color: #fff;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+  scroll-behavior: none;
 }
