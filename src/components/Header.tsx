@@ -6,7 +6,7 @@ import { Link } from "@builder.io/qwik-city";
 export default component$(() => {
   const cart = useContext(CartContext);
   return (
-    <header class="h-15 fixed grid w-screen grid-cols-3  bg-secondary  p-[0.330rem] ">
+    <header class="h-15 fixed grid w-screen grid-cols-3 bg-secondary   shadow-sm ">
       <div class=" flex px-5 ">
         <div class="rounded-lg border   border-secondary p-2 transition  ease-linear hover:bg-scondary_hover">
           <Link href="/" class=" content-nd cursor-pointer ">

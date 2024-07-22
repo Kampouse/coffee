@@ -1,6 +1,7 @@
 import { component$, useContext, $, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import * as Lucid from "lucide-qwik";
+import { FrownIcon } from "lucide-qwik";
 import { CartContext } from "../layout";
 import type { CartItemProps } from "../layout";
 
@@ -25,7 +26,6 @@ const CartItem = component$<CartItemProps>((props) => {
       return item;
     });
   });
-  // maybe we can use a computed value here
   return (
     <div class="grid grid-cols-[80px_1fr_80px] items-center   gap-1 rounded-md border bg-[#fafafa] p-2">
       <img
@@ -87,6 +87,14 @@ export default component$(() => {
         <h1 class="mb-6 py-2 text-2xl font-bold">Your Cart</h1>
         <div class={"min-h-[12em]"}>
           <div class="grid gap-6 ">
+            {cart.data.length === 0 && (
+              <div class="flex justify-center">
+                <div class="text-center ">
+                  {" "}
+                  <FrownIcon size={100} color="#f3f4f6" class="   py-32" />
+                </div>
+              </div>
+            )}
             {cart.data.map((item) => {
               return <CartItem key={item.name} {...item} />;
             })}
