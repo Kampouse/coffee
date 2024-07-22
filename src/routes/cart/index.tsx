@@ -1,4 +1,4 @@
-import { component$, useContext, $ } from "@builder.io/qwik";
+import { component$, useContext, $, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import * as Lucid from "lucide-qwik";
 import { CartContext } from "../layout";
@@ -25,7 +25,7 @@ const CartItem = component$<CartItemProps>((props) => {
       return item;
     });
   });
-
+  // maybe we can use a computed value here
   return (
     <div class="grid grid-cols-[80px_1fr_80px] items-center   gap-1 rounded-md border bg-[#fafafa] p-2">
       <img
@@ -77,7 +77,10 @@ const CartItem = component$<CartItemProps>((props) => {
 });
 export default component$(() => {
   const cart = useContext(CartContext);
-
+  const totalPrice = cart.data.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+  const clicked = useSignal(false);
   return (
     <div class="my-32 h-full md:my-24 lg:my-32 lg:mb-[12.3rem]  ">
       <div class=" mx-auto my-4 h-fit w-full max-w-4xl rounded-xl  border bg-white px-4  py-8 text-black md:px-6">
@@ -95,7 +98,7 @@ export default component$(() => {
           class="bg-border my-6 h-[1px] w-full shrink-0"
         ></div>
         <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-          <div class="text-2xl font-bold">Total: $123.94</div>
+          <div class="text-2xl font-bold">Total: {totalPrice} $</div>
 
           <div class="flex gap-2">
             <Link
@@ -104,8 +107,12 @@ export default component$(() => {
             >
               Continue Shopping
             </Link>
-            <button class=" ring-offset-background focus-visible:ring-ring text-primary-foreground inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-red-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-500/90  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+            <button
+              onClick$={() => (clicked.value = !clicked.value)}
+              class=" ring-offset-background focus-visible:ring-ring text-primary-foreground inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-red-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-500/90  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+            >
               Proceed to Checkout
+              {clicked.value ? <Lucid.CheckIcon /> : <Lucid.ArrowRightIcon />}
             </button>
           </div>
         </div>

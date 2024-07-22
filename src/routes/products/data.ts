@@ -17,7 +17,7 @@ export const hot: ProductProps[] = [
     longDescription:
       "A latte is a coffee drink made with espresso and steamed milk. The term comes from the Italian caffè latte, which means 'milk coffee.' It is similar to a cappuccino, but with more milk and less foam. Lattes are typically served in a tall glass or cup.",
     image:
-      "https://cdn.pixabay.com/photo/2024/05/23/10/35/coffee-8782893_960_720.jpg",
+      "http://4.bp.blogspot.com/-xCjO0HjAIBg/TVh3MCSURUI/AAAAAAAAAWQ/azfDBpAnSP0/s1600/latte3.JPG",
   },
   {
     name: "Cappuccino",
@@ -55,9 +55,8 @@ export const cold: ProductProps[] = [
     description: "Chilled coffee over ice.",
     longDescription:
       "Iced coffee is a cold coffee drink made by pouring brewed coffee over ice. It is typically served sweetened and with milk or cream. Iced coffee is a refreshing and invigorating drink, perfect for hot summer days.",
-    image: "https://cdn.pixabay.com/photo/2019/11/23/20/04/coffee-4648041_1280.jpg",
-
-
+    image:
+      "https://cdn.pixabay.com/photo/2019/11/23/20/04/coffee-4648041_1280.jpg",
   },
   {
     name: "Iced Latte",
