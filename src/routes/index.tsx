@@ -150,7 +150,7 @@ export const Custom = component$(() => {
 
   return (
     <div
-      id="#custom"
+      id="#customorder"
       class="   flex h-fit  flex-col     bg-white bg-cover bg-no-repeat  p-10 text-green-100 lg:h-fit  "
     >
       <div class="lg:py-5 ">
@@ -188,7 +188,10 @@ export const Custom = component$(() => {
 
 const Location = component$(() => {
   return (
-    <div class="flex h-fit flex-col items-center  justify-center gap-2 self-center bg-white  bg-no-repeat p-5  text-center   lg:h-fit">
+    <div
+      id="location"
+      class="flex h-fit flex-col items-center  justify-center gap-2 self-center bg-white  bg-no-repeat p-5  text-center   lg:h-fit"
+    >
       <div class="grid    lg:grid-cols-2 lg:gap-24  lg:px-52 ">
         <div class="w-full lg:self-center">
           <h1 class=" flex flex-row gap-3 pl-8 text-center font-mali  text-2xl text-primary  ">

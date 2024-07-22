@@ -2,8 +2,10 @@ import {
   component$,
   useContext,
   $,
+  type Signal,
   useStore,
   useTask$,
+  useSignal,
 } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
@@ -33,10 +35,7 @@ export default component$(() => {
       cart.data.find((item) => item.name === prod.name)?.quantity || 0;
   });
 
-  //assing to prod if undefined
-  const updateCart = $(() => {
-    //required to get th bundle to pick up the fn on the client?
-
+  const updateCart = $((ischecked: Signal<Boolean>) => {
     if (cartItem.quantity === 0) cartItem.quantity = cartItem.quantity + 1 || 1;
     const clientProd = getProduct(location.params.name);
     const index = cart.data.findIndex((item) => item.name === clientProd.name);
@@ -45,11 +44,14 @@ export default component$(() => {
     } else {
       cart.data.push({ ...clientProd, quantity: cartItem.quantity });
     }
+    ischecked.value = true;
     //set clientProd to be empty to trigger a rerender
   });
+
+  const ischecked = useSignal(false);
   return (
     <main class="mt-20 flex flex-col  md:my-24 lg:mt-32 lg:flex-row">
-      <div class="md:ml-16 lg:mx-32 ">
+      <div class="md:ml-16  ">
         <img
           src={prod.image}
           class="h-[15em] max-h-[32em] w-full min-w-[20em]  self-start   rounded-xl md:h-[20em] md:w-[32em] lg:h-[30em] lg:w-[42em]  "
@@ -66,10 +68,11 @@ export default component$(() => {
 
         <div class=" flex flex-col   ">
           <button
-            onClick$={() => updateCart()}
-            class="self-left order-first mb-2 w-32 self-center rounded-lg bg-red-500 p-2 pb-2 text-white md:mx-40 "
+            onClick$={() => updateCart(ischecked)}
+            class="order-first mb-2 flex w-40 flex-row justify-evenly  self-center rounded-lg bg-red-500 p-2 pb-2 text-center text-white md:mx-40 "
           >
-            Add to cart
+            {ischecked.value ? "Added to cart" : "Add to cart"}
+            <Lucid.ShoppingCartIcon class="" />
           </button>
           <div class="flex flex-row  justify-center self-center lg:gap-2">
             <button

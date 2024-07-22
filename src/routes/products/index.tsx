@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Link, useNavigate } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 import { hot, cold, food, beans } from "./data";
 export interface ProductProps {
   name: string;
@@ -34,10 +34,9 @@ export const ProductCard = component$<ProductProps>(
     price = "hello",
     image = "https://images.nightcafe.studio/jobs/o18Jn35jZ4jbm5aRdEhr/o18Jn35jZ4jbm5aRdEhr--1--3bobm.jpg?tr=w-1600,c-at_max",
   }) => {
-    const navigate = useNavigate();
     return (
       <div class="w-full">
-        <div onClick$={() => navigate("/products/" + name)} class="">
+        <Link href={"/products/" + name} class="">
           <img
             width={500}
             height={500}
@@ -45,20 +44,17 @@ export const ProductCard = component$<ProductProps>(
             class="   h-[200px] w-[600px] cursor-pointer  rounded-lg border   lg:h-[350px]"
           />
           <div class="p-2 text-black   ">
-            <div class="flex gap-2  ">
-              <Link
-                href={"/products/" + name}
-                class=" cursor-pointer font-mali text-2xl font-medium leading-6 "
-                reload={false}
-              >
+            <div class="flex flex-row justify-start gap-2  ">
+              <div class=" cursor-pointer font-mali text-2xl font-medium leading-6 ">
                 {" "}
                 {name}{" "}
-              </Link>
-              <h1 class="pt-1 text-red-800"> {price}$</h1>
+              </div>
+              <h1 class="self-start pt-1 text-black"> {price}$</h1>
             </div>
+
             <h2 class="text-left">{description.slice(0, 50)}</h2>
           </div>
-        </div>
+        </Link>
       </div>
     );
   },
