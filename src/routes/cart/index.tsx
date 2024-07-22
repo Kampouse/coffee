@@ -91,7 +91,8 @@ export default component$(() => {
               <div class="flex justify-center">
                 <div class="text-center ">
                   {" "}
-                  <FrownIcon size={100} color="#f3f4f6" class="   py-32" />
+                  <FrownIcon size={250} color="#e5e7eb" class="   pt-10" />
+                  <h1 class="text-2xl font-medium">Your cart is empty</h1>
                 </div>
               </div>
             )}
