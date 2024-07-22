@@ -59,7 +59,7 @@ export default component$(() => {
       </div>
 
       <div class="flex h-full w-full flex-col gap-2 self-center text-center align-bottom text-red-800 lg:ml-0 lg:w-fit lg:py-16">
-        <h1 class="text-4xl text-red-700 pt-1 md:pt-2 lg:pt-0">
+        <h1 class="pt-1 text-4xl text-red-700 md:pt-2 lg:pt-0">
           {prod.name}
           <span class="text-3xl text-red-800"> {prod.price} $</span>
         </h1>
@@ -93,7 +93,7 @@ export default component$(() => {
           </div>
         </div>
 
-        <h1 class=" md:ml-8 flex w-96 justify-center self-center text-center ">
+        <h1 class=" flex w-96 justify-center self-center text-center md:ml-8 ">
           {prod.longDescription}
         </h1>
       </div>
