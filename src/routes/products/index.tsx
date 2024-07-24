@@ -41,7 +41,7 @@ export const ProductCard = component$<ProductProps>(
             width={500}
             height={500}
             src={image}
-            class="   h-[52vh] w-full cursor-pointer rounded-lg  border   md:h-[200px] lg:h-[350px]"
+            class="   h-[22rem] w-full cursor-pointer rounded-lg  border   md:h-[15em] lg:h-[15em]"
           />
           <div class="p-2 text-black   ">
             <div class="flex flex-row justify-start gap-2  ">
@@ -119,7 +119,7 @@ export default component$(() => {
             {" "}
             Most loved{" "}
           </h1>
-          <div class="px-12 md:mb-16">
+          <div class="md:mb-16 md:px-8">
             <Tables products={Producto.slice(0, 3)} />
             <Tables products={Producto.slice(4, 9)} />
             <Tables products={Producto.slice(10, 12)} />

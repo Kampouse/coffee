@@ -49,7 +49,7 @@ export default component$(() => {
       <div class="md:ml-16  ">
         <img
           src={prod.image}
-          class="h-[52vh] max-h-[32em] w-full min-w-[20em] self-start rounded-xl  object-fill   shadow-xl md:h-[20em] md:w-[32em] lg:h-[30em] lg:w-[42em]  "
+          class="h-[22rem] max-h-[32em] w-full min-w-[20em] self-start rounded-xl  object-fill   shadow-xl md:h-[20em] md:w-[32em] lg:h-[30em] lg:w-[42em]  "
           width={500}
           height={500}
         />
