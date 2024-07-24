@@ -2,10 +2,8 @@ import {
   component$,
   useContext,
   $,
-  type Signal,
   useStore,
   useTask$,
-  useSignal,
 } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
@@ -24,7 +22,6 @@ export default component$(() => {
     image: "",
     quantity: 0,
   });
-
   useTask$((taskContext) => {
     taskContext.track(() => location.params.name);
     const loc = location.params.name;
@@ -35,7 +32,7 @@ export default component$(() => {
       cart.data.find((item) => item.name === prod.name)?.quantity || 0;
   });
 
-  const updateCart = $((ischecked: Signal<Boolean>) => {
+  const updateCart = $(() => {
     if (cartItem.quantity === 0) cartItem.quantity = cartItem.quantity + 1 || 1;
     const clientProd = getProduct(location.params.name);
     const index = cart.data.findIndex((item) => item.name === clientProd.name);
@@ -44,17 +41,15 @@ export default component$(() => {
     } else {
       cart.data.push({ ...clientProd, quantity: cartItem.quantity });
     }
-    ischecked.value = true;
     //set clientProd to be empty to trigger a rerender
   });
 
-  const ischecked = useSignal(false);
   return (
     <main class="mt-20 flex flex-col  md:my-24 lg:mt-32 lg:flex-row">
       <div class="md:ml-16  ">
         <img
           src={prod.image}
-          class="h-[15em] max-h-[32em] w-full min-w-[20em]  self-start   rounded-xl md:h-[20em] md:w-[32em] lg:h-[30em] lg:w-[42em]  "
+          class="h-[52vh] max-h-[32em] w-full min-w-[20em] self-start rounded-xl  object-fill   shadow-xl md:h-[20em] md:w-[32em] lg:h-[30em] lg:w-[42em]  "
           width={500}
           height={500}
         />
@@ -66,34 +61,41 @@ export default component$(() => {
           <span class="text-3xl text-red-800"> {prod.price} $</span>
         </h1>
 
-        <div class=" flex flex-col   ">
-          <button
-            onClick$={() => updateCart(ischecked)}
-            class="order-first mb-2 flex w-40 flex-row justify-evenly  self-center rounded-lg bg-red-500 p-2 pb-2 text-center text-white md:mx-40 "
+        <div class=" flex flex-col gap-2   ">
+          <select
+            onChange$={(e: Event) => {
+              if (e.target instanceof HTMLSelectElement) {
+                if (cartItem.quantity > 0) {
+                  cartItem.quantity = parseInt(
+                    (e.target as HTMLSelectElement).value,
+                  );
+                  updateCart();
+                } else {
+                  cartItem.quantity = parseInt(
+                    (e.target as HTMLSelectElement).value,
+                  );
+                }
+              }
+            }}
+            class="w-40 self-center rounded-lg border bg-transparent  p-2 pb-2 text-center text-black"
           >
-            {ischecked.value ? "Added to cart" : "Add to cart"}
+            <option key={0} value={cartItem.quantity}>
+              {cartItem.quantity > 0 ? "In Cart: " + cartItem.quantity : "0"}
+            </option>
+            {Array.from({ length: 10 }, (_, i) => i + 1).map((i) => (
+              <option key={i} value={i}>
+                {i === 1 ? "1" : i + ""}
+              </option>
+            ))}
+          </select>
+          <button
+            onClick$={() => {
+              updateCart();
+            }}
+            class="order-last  mb-2 flex w-40 flex-row justify-evenly  self-center rounded-lg bg-red-500 p-2 pb-2 text-center text-white md:mx-40 "
+          >
             <Lucid.ShoppingCartIcon class="" />
           </button>
-          <div class="flex flex-row  justify-center self-center lg:gap-2">
-            <button
-              class="  rounded-lg border  border-red-500"
-              onClick$={() => {
-                if (cartItem.quantity > 0) cartItem.quantity -= 1;
-              }}
-            >
-              <Lucid.MinusIcon class=" text-red-500" />
-            </button>
-
-            <span class=" rounded-lg   px-2"> {cartItem.quantity}</span>
-            <button
-              class=" rounded-lg border border-red-500"
-              onClick$={() => {
-                cartItem.quantity += 1;
-              }}
-            >
-              <Lucid.PlusIcon class=" text-red-500" />
-            </button>
-          </div>
         </div>
 
         <h1 class=" flex w-96 justify-center self-center text-center md:ml-8 ">

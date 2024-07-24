@@ -41,7 +41,7 @@ export const ProductCard = component$<ProductProps>(
             width={500}
             height={500}
             src={image}
-            class="   h-[200px] w-[600px] cursor-pointer  rounded-lg border   lg:h-[350px]"
+            class="   h-[52vh] w-full cursor-pointer rounded-lg  border   md:h-[200px] lg:h-[350px]"
           />
           <div class="p-2 text-black   ">
             <div class="flex flex-row justify-start gap-2  ">
